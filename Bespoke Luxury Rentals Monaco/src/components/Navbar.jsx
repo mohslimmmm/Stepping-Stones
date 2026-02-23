@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, NavLink, useLocation } from 'react-router-dom';
 import { Menu, X, Key } from 'lucide-react';
 import './Navbar.css';
 
@@ -29,13 +29,13 @@ const Navbar = () => {
         </Link>
         
         <div className={`navbar-links ${isOpen ? 'active' : ''}`}>
-          <Link to="/discovery" className="nav-link" onClick={closeMenu}>Discovery</Link>
-          <Link to="/lifestyle" className="nav-link" onClick={closeMenu}>Lifestyle</Link>
-          <Link to="/trust" className="nav-link" onClick={closeMenu}>Trust & About</Link>
-          <Link to="/contact" className="nav-link" onClick={closeMenu}>Contact</Link>
-          <Link to="/admin" className="nav-link btn-host" onClick={closeMenu}>
+          <NavLink to="/discovery" className={({isActive}) => `nav-link${isActive ? ' nav-active' : ''}`} onClick={closeMenu}>Discovery</NavLink>
+          <NavLink to="/lifestyle" className={({isActive}) => `nav-link${isActive ? ' nav-active' : ''}`} onClick={closeMenu}>Lifestyle</NavLink>
+          <NavLink to="/trust" className={({isActive}) => `nav-link${isActive ? ' nav-active' : ''}`} onClick={closeMenu}>Trust & About</NavLink>
+          <NavLink to="/contact" className={({isActive}) => `nav-link${isActive ? ' nav-active' : ''}`} onClick={closeMenu}>Contact</NavLink>
+          <NavLink to="/admin" end className="nav-link btn-host" onClick={closeMenu}>
             <Key size={16} className="btn-icon" /> Host Login
-          </Link>
+          </NavLink>
         </div>
 
         <button className="navbar-toggle" onClick={() => setIsOpen(!isOpen)}>
