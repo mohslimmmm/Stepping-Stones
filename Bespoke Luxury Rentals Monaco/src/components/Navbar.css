@@ -58,6 +58,40 @@
     color: var(--color-accent-blue);
 }
 
+/* Active link — solid navbar */
+.navbar-solid .nav-active {
+    color: var(--color-accent-blue);
+    position: relative;
+}
+
+.navbar-solid .nav-active::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--color-accent-blue);
+    border-radius: 2px;
+}
+
+/* Active link — transparent navbar (over hero) */
+.navbar-transparent .nav-active {
+    color: #ffffff;
+    position: relative;
+}
+
+.navbar-transparent .nav-active::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: rgba(255, 255, 255, 0.85);
+    border-radius: 2px;
+}
+
 .btn-host {
     display: flex;
     align-items: center;

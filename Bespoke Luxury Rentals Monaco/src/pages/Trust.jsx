@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { ShieldCheck, Award, Star, Quote } from 'lucide-react';
+import { motion } from 'framer-motion';
 import './Trust.css';
 
 const TESTIMONIALS = [
@@ -20,6 +21,25 @@ const TESTIMONIALS = [
   }
 ];
 
+const fadeInUp = {
+  hidden: { opacity: 0, y: 40 },
+  visible: { 
+    opacity: 1, 
+    y: 0, 
+    transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } 
+  }
+};
+
+const staggerContainer = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15
+    }
+  }
+};
+
 const Trust = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -29,51 +49,87 @@ const Trust = () => {
     <div className="trust-page">
       <div className="trust-hero">
         <div className="trust-hero-bg"></div>
-        <div className="trust-hero-content container">
-          <h1 className="trust-title">Our Legacy of Excellence</h1>
-          <p className="trust-subtitle">For over two decades, Riviera Royale has been the trusted custodian of the Mediterranean's most significant properties and the preferred partner for the world's most discerning individuals.</p>
-        </div>
+        <motion.div 
+          className="trust-hero-content container"
+          initial="hidden"
+          animate="visible"
+          variants={fadeInUp}
+        >
+          <div className="trust-hero-badge">Excellence Guaranteed</div>
+          <h1 className="trust-title">Our Legacy of Trust</h1>
+          <p className="trust-subtitle">For over two decades, we have been the trusted custodians of the Mediterranean's most significant properties, serving the world's most discerning individuals with unfaltering grace.</p>
+        </motion.div>
       </div>
 
       <div className="trust-badges-section">
-        <div className="container trust-badges-grid">
-          <div className="trust-badge-item">
-            <ShieldCheck size={48} className="badge-icon-large" />
+        <motion.div 
+          className="container trust-badges-grid"
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+        >
+          <motion.div className="trust-badge-item" variants={fadeInUp}>
+            <div className="badge-icon-wrapper">
+              <ShieldCheck size={36} className="badge-icon" />
+            </div>
             <h3>Elite Luxury Travel</h3>
-            <p>Proud founding members of the international luxury travel consortium, adhering to strict standards of excellence.</p>
-          </div>
-          <div className="trust-badge-item">
-            <Award size={48} className="badge-icon-large" />
+            <p>Proud founding members of the international luxury travel consortium, adhering to impeccably strict standards of excellence.</p>
+          </motion.div>
+          <motion.div className="trust-badge-item" variants={fadeInUp}>
+            <div className="badge-icon-wrapper">
+              <Award size={36} className="badge-icon" />
+            </div>
             <h3>Vetted Portfolio</h3>
-            <p>Every property undergoes a rigorous 150-point inspection quarterly to ensure flawless standards.</p>
-          </div>
-          <div className="trust-badge-item">
-            <Star size={48} className="badge-icon-large" />
+            <p>Every property undergoes a rigorous 150-point quarterly inspection to ensure absolutely flawless standards are maintained.</p>
+          </motion.div>
+          <motion.div className="trust-badge-item" variants={fadeInUp}>
+            <div className="badge-icon-wrapper">
+              <Star size={36} className="badge-icon" />
+            </div>
             <h3>Uncompromising Discretion</h3>
-            <p>We guarantee absolute privacy. Our NDAs cover all staff, contractors, and concierge partners.</p>
-          </div>
-        </div>
+            <p>We guarantee absolute privacy. Comprehensive NDAs comprehensively cover all staff, contractors, and concierge partners.</p>
+          </motion.div>
+        </motion.div>
       </div>
 
       <div className="testimonials-section">
         <div className="container">
-          <div className="section-header">
+          <motion.div 
+            className="section-header"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={fadeInUp}
+          >
             <h2 className="section-title">Client Perspectives</h2>
-            <p className="section-subtitle">While we fiercely protect our clients' identities, a select few have consented to share their experiences anonymously.</p>
-          </div>
+            <div className="section-divider"></div>
+            <p className="section-subtitle">While we fiercely protect our clients' identities, a select few have graciously consented to share their experiences anonymously.</p>
+          </motion.div>
           
-          <div className="testimonials-grid">
+          <motion.div 
+            className="testimonials-grid"
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+          >
             {TESTIMONIALS.map((testimonial, idx) => (
-              <div key={idx} className="testimonial-card">
-                <Quote size={32} className="quote-icon-bg" />
-                <p className="testimonial-quote">"{testimonial.quote}"</p>
-                <div className="testimonial-author">
-                  <h4>{testimonial.author}</h4>
-                  <span>{testimonial.role}</span>
+              <motion.div key={idx} className="testimonial-card" variants={fadeInUp}>
+                <Quote size={48} className="quote-icon-bg" />
+                <div className="testimonial-content">
+                  <p className="testimonial-quote">"{testimonial.quote}"</p>
+                  <div className="testimonial-author">
+                    <div className="author-line"></div>
+                    <div>
+                      <h4>{testimonial.author}</h4>
+                      <span>{testimonial.role}</span>
+                    </div>
+                  </div>
                 </div>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </div>
     </div>

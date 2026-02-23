@@ -66,7 +66,7 @@ const FILTERS = ['Sea View', 'Helipad', 'Staffed'];
 const Discovery = () => {
   const [activeTab, setActiveTab] = useState('All');
   const [activeFilters, setActiveFilters] = useState([]);
-  const [showMobileFilters, setShowMobileFilters] = useState(false);
+  const [showFilters, setShowFilters] = useState(false);
 
   const toggleFilter = (filter) => {
     if (activeFilters.includes(filter)) {
@@ -98,13 +98,42 @@ const Discovery = () => {
       </div>
 
       <div className="discovery-container container">
+        {/* Sidebar backdrop */}
+        {showFilters && (
+          <div className="sidebar-backdrop" onClick={() => setShowFilters(false)} />
+        )}
+
         {/* Sidebar Filters */}
-        <div className={`discovery-sidebar ${showMobileFilters ? 'open' : ''}`}>
+        <div className={`discovery-sidebar ${showFilters ? 'open' : ''}`}>
           <div className="filter-header">
-            <h3><Filter size={18} /> Filters</h3>
-            <button className="close-filters-btn" onClick={() => setShowMobileFilters(false)}>×</button>
+            <div className="filter-header-left">
+              <h3><Filter size={18} /> Filters</h3>
+              {(activeFilters.length > 0 || activeTab !== 'All') && (
+                <button 
+                  className="clear-all-btn" 
+                  onClick={() => { setActiveFilters([]); setActiveTab('All'); }}
+                >
+                  Clear All
+                </button>
+              )}
+            </div>
+            <button className="close-filters-btn" onClick={() => setShowFilters(false)}>×</button>
           </div>
           
+          <div className="filter-section">
+            <h4 className="filter-title">Property Type</h4>
+            <div className="sidebar-categories">
+              {CATEGORIES.map(category => (
+                <button 
+                  key={category}
+                  className={`sidebar-tab-btn ${activeTab === category ? 'active' : ''}`}
+                  onClick={() => setActiveTab(category)}
+                >
+                  {category}
+                </button>
+              ))}
+            </div>
+          </div>
           <div className="filter-section">
             <h4 className="filter-title">Amenities</h4>
             <div className="filter-options">
@@ -145,8 +174,11 @@ const Discovery = () => {
         {/* Main Content Area */}
         <div className="discovery-main">
           <div className="discovery-controls">
-            <button className="mobile-filter-btn btn btn-outline" onClick={() => setShowMobileFilters(true)}>
+            <button className="filter-toggle-btn btn btn-outline" onClick={() => setShowFilters(true)}>
               <SlidersHorizontal size={18} /> Filters
+              {activeFilters.length > 0 && (
+                <span className="filter-badge">{activeFilters.length}</span>
+              )}
             </button>
             
             {/* Tabs */}
