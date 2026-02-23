@@ -1,0 +1,92 @@
+/* Leads CRM Styles */
+.lead-name-cell {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.avatar.sm {
+    width: 32px;
+    height: 32px;
+    font-size: 0.875rem;
+}
+
+.uppercase-headers th {
+    color: var(--color-gray-400);
+}
+
+.origin-type {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--color-gray-300);
+}
+
+/* CRM Pipeline Badges */
+.crm-badge {
+    padding: 0.35rem 0.75rem;
+    border-radius: var(--radius-sm);
+    /* Using the sleek 4px border radius everywhere instead of pill */
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.status-inquiry {
+    background-color: rgba(244, 164, 96, 0.15);
+    /* Desert Sand */
+    color: var(--color-desert-sand);
+    border: 1px solid rgba(244, 164, 96, 0.3);
+}
+
+.status-virtual {
+    background-color: rgba(59, 130, 246, 0.15);
+    /* Blue */
+    color: #60a5fa;
+    border: 1px solid rgba(59, 130, 246, 0.3);
+}
+
+.status-scheduled {
+    background-color: rgba(16, 185, 129, 0.15);
+    /* Green */
+    color: #34d399;
+    border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.status-completed {
+    background-color: rgba(156, 163, 175, 0.15);
+    /* Gray */
+    color: var(--color-gray-300);
+    border: 1px solid rgba(156, 163, 175, 0.3);
+}
+
+.crm-action-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    background: transparent;
+    color: var(--color-desert-sand);
+    border: 1px solid var(--color-gray-800);
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius-sm);
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.crm-action-btn:hover {
+    background-color: var(--color-gray-800);
+    color: var(--color-warm-white);
+}
+
+.lead-row {
+    cursor: pointer;
+}
+
+.lead-row:hover .crm-action-btn {
+    background-color: var(--color-desert-sand);
+    color: var(--color-obsidian-black);
+    border-color: var(--color-desert-sand);
+}

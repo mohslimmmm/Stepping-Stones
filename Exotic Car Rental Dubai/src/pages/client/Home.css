@@ -1,0 +1,220 @@
+.hero-section {
+    position: relative;
+    height: 90vh;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #1a1a1a 0%, #000 100%);
+    /* A placeholder background feeling like a luxury cinematic shot */
+    background-image: url('https://images.unsplash.com/photo-1603584173870-141a029ee628?q=80&w=2574&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center;
+    z-index: 1;
+}
+
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(0deg, rgba(18, 18, 18, 1) 0%, rgba(18, 18, 18, 0.4) 100%);
+    z-index: 2;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 3;
+    text-align: center;
+    max-width: 800px;
+    padding: 0 20px;
+    margin-top: -100px;
+}
+
+.hero-title {
+    font-size: 5rem;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    color: #ddd;
+    margin-bottom: 40px;
+}
+
+.reservation-bar {
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 1000px;
+    z-index: 4;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 30px;
+    gap: 20px;
+}
+
+.reservation-input {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 1;
+}
+
+.reservation-input label {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    font-family: var(--font-header);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.reservation-input input,
+.reservation-input select {
+    background: transparent;
+    border: none;
+    color: var(--text-color);
+    font-size: 1.1rem;
+    font-family: var(--font-body);
+    outline: none;
+    cursor: pointer;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding-bottom: 5px;
+}
+
+.reservation-input select option {
+    background: #222;
+    color: #fff;
+}
+
+.reservation-divider {
+    width: 1px;
+    height: 50px;
+    background: var(--glass-border);
+}
+
+.reserve-btn {
+    padding: 15px 30px;
+    font-size: 1rem;
+    white-space: nowrap;
+}
+
+.display-section {
+    padding: 100px 40px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.section-header h2 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.section-subtitle {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    margin-bottom: 50px;
+}
+
+.fleet-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 40px;
+}
+
+.car-card {
+    background: #1a1a1a;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.car-image {
+    height: 250px;
+    background-size: cover;
+    background-position: center;
+    background-color: #2a2a2a;
+}
+
+.car-image.lambo-revuelto {
+    background-image: url('https://images.unsplash.com/photo-1544888252-eb061c0c1cf1?q=80&w=2538&auto=format&fit=crop');
+}
+
+.car-image.rolls-cullinan {
+    background-image: url('https://images.unsplash.com/photo-1631557008620-e2b83445e9ef?q=80&w=2670&auto=format&fit=crop');
+}
+
+.car-image.sf90 {
+    background-image: url('https://images.unsplash.com/photo-1592198084033-aade902d1aae?q=80&w=2670&auto=format&fit=crop');
+}
+
+.car-info {
+    padding: 25px;
+}
+
+.car-info h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.car-specs {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+}
+
+.car-price {
+    margin-bottom: 15px;
+}
+
+.price-value {
+    font-size: 1.8rem;
+    font-family: var(--font-header);
+    color: var(--accent-color);
+}
+
+.price-period {
+    color: var(--text-muted);
+}
+
+@media (max-width: 900px) {
+    .hero-title {
+        font-size: 3.5rem;
+    }
+
+    .reservation-bar {
+        flex-direction: column;
+        align-items: stretch;
+        bottom: -150px;
+        background: #111;
+    }
+
+    .reservation-divider {
+        width: 100%;
+        height: 1px;
+    }
+
+    .hero-section {
+        margin-bottom: 150px;
+    }
+}

@@ -1,0 +1,288 @@
+/* Home Page Specific Styles */
+.hero-section {
+    position: relative;
+    height: 90vh;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(11, 12, 16, 0.8) 0%, rgba(11, 12, 16, 0.3) 100%);
+}
+
+.hero-content {
+    color: var(--color-warm-white);
+    max-width: 800px;
+    position: relative;
+    z-index: 10;
+}
+
+.hero-title {
+    font-size: clamp(3rem, 5vw, 4.5rem);
+    margin-bottom: 1.5rem;
+    letter-spacing: -1px;
+}
+
+.hero-subtitle {
+    font-size: 1.125rem;
+    max-width: 600px;
+    margin-bottom: 2.5rem;
+    color: var(--color-gray-200);
+    font-weight: 300;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 1rem;
+}
+
+.btn-outline-light {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    color: var(--color-warm-white);
+    border: 1px solid var(--color-warm-white);
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--radius-sm);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.875rem;
+    transition: all var(--transition-fast);
+}
+
+.btn-outline-light:hover {
+    background-color: var(--color-warm-white);
+    color: var(--color-obsidian-black);
+}
+
+/* Typography Helpers */
+.section-title {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.section-body {
+    font-size: 1.125rem;
+    color: var(--color-gray-800);
+    margin-bottom: 2rem;
+}
+
+.link-with-icon {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.875rem;
+    color: var(--color-desert-sand-dark);
+}
+
+.link-with-icon:hover {
+    color: var(--color-obsidian-black);
+}
+
+/* Philosophy Section */
+.philosophy-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.philosophy-image-container {
+    position: relative;
+    padding-right: 2rem;
+    padding-bottom: 2rem;
+}
+
+.philosophy-image-container::after {
+    content: '';
+    position: absolute;
+    top: 2rem;
+    right: 0;
+    bottom: 0;
+    left: 2rem;
+    background-color: var(--color-desert-sand);
+    z-index: -1;
+    border-radius: var(--radius-sm);
+}
+
+.philosophy-image {
+    border-radius: var(--radius-sm);
+    box-shadow: 0 10px 30px rgba(11, 12, 16, 0.1);
+}
+
+/* Featured Section */
+.featured-section {
+    background-color: var(--color-gray-100);
+}
+
+.featured-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 3rem;
+}
+
+.featured-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.procedure-card {
+    background-color: var(--color-warm-white);
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+    display: flex;
+    flex-direction: column;
+}
+
+.procedure-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.procedure-img-wrapper {
+    height: 250px;
+    overflow: hidden;
+}
+
+.procedure-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition-normal);
+}
+
+.procedure-card:hover .procedure-img {
+    transform: scale(1.05);
+}
+
+.procedure-card-content {
+    padding: 1.5rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.procedure-card-title {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+}
+
+.procedure-card-desc {
+    color: var(--color-gray-400);
+    font-size: 0.875rem;
+    margin-bottom: 1rem;
+    flex-grow: 1;
+}
+
+/* Trust Section */
+.trust-section {
+    background-color: var(--color-obsidian-black);
+    color: var(--color-warm-white);
+    text-align: center;
+}
+
+.trust-container {
+    max-width: 800px;
+}
+
+.trust-icon {
+    color: var(--color-desert-sand);
+    margin-bottom: 2rem;
+}
+
+.trust-quote {
+    font-size: 2rem;
+    font-style: italic;
+    font-weight: 400;
+    margin-bottom: 2rem;
+    color: var(--color-warm-white);
+}
+
+.trust-author {
+    font-size: 0.875rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--color-gray-400);
+}
+
+/* Sticky Action Button */
+.sticky-action-btn {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background-color: var(--color-desert-sand);
+    color: var(--color-obsidian-black);
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    /* exception to 4px for pill shape, or stick to 4px */
+    border-radius: var(--radius-sm);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.875rem;
+    box-shadow: 0 4px 15px rgba(244, 164, 96, 0.4);
+    z-index: 90;
+    transition: transform var(--transition-fast), background-color var(--transition-fast);
+}
+
+.sticky-action-btn:hover {
+    background-color: var(--color-desert-sand-dark);
+    transform: translateY(-2px);
+    color: var(--color-warm-white);
+}
+
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .philosophy-container {
+        grid-template-columns: 1fr;
+    }
+
+    .philosophy-image-container {
+        margin-top: 2rem;
+    }
+
+    .featured-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .trust-quote {
+        font-size: 1.5rem;
+    }
+}

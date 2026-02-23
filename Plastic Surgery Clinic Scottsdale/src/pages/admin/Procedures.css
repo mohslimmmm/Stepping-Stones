@@ -1,0 +1,118 @@
+/* Administrative Table Styles */
+.flex-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.admin-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: var(--color-desert-sand);
+    color: var(--color-obsidian-black);
+}
+
+.admin-btn:hover {
+    background-color: var(--color-desert-sand-light);
+}
+
+.table-wrapper {
+    overflow-x: auto;
+    padding: 0;
+}
+
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.admin-table th,
+.admin-table td {
+    padding: 1.25rem 1.5rem;
+    border-bottom: 1px solid var(--color-gray-800);
+}
+
+.admin-table th {
+    color: var(--color-gray-400);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 500;
+    background-color: rgba(255, 255, 255, 0.02);
+}
+
+.admin-table td {
+    color: var(--color-gray-300);
+    font-size: 0.95rem;
+}
+
+.admin-table tbody tr {
+    transition: background-color var(--transition-fast);
+}
+
+.admin-table tbody tr:hover {
+    background-color: rgba(255, 255, 255, 0.02);
+}
+
+.text-white {
+    color: var(--color-warm-white);
+}
+
+.font-medium {
+    font-weight: 500;
+}
+
+.text-right {
+    text-align: right;
+}
+
+/* Status Badges */
+.status-badge {
+    padding: 0.25rem 0.75rem;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.status-badge.active {
+    background-color: rgba(16, 185, 129, 0.1);
+    color: #10b981;
+    border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+.status-badge.inactive {
+    background-color: rgba(156, 163, 175, 0.1);
+    color: var(--color-gray-400);
+    border: 1px solid rgba(156, 163, 175, 0.2);
+}
+
+/* Action Buttons */
+.actions-cell {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.75rem;
+}
+
+.action-btn {
+    color: var(--color-gray-400);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: var(--radius-sm);
+    transition: all var(--transition-fast);
+}
+
+.action-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--color-warm-white);
+}
+
+.action-btn.delete:hover {
+    background-color: rgba(239, 68, 68, 0.1);
+    color: #ef4444;
+}

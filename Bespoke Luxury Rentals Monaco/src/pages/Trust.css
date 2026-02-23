@@ -1,0 +1,143 @@
+.trust-page {
+    padding-top: 80px;
+    background-color: var(--color-bg);
+}
+
+.trust-hero {
+    position: relative;
+    padding: 8rem 0;
+    color: #FFFFFF;
+    text-align: center;
+    background-color: var(--color-footer-bg);
+    overflow: hidden;
+}
+
+.trust-hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://images.unsplash.com/photo-1540324155970-14e91845bb0b?auto=format&fit=crop&q=80');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.15;
+    z-index: 1;
+}
+
+.trust-hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+}
+
+.trust-title {
+    font-size: 3.5rem;
+    margin-bottom: 2rem;
+    letter-spacing: 0.05em;
+    color: #FFFFFF;
+}
+
+.trust-subtitle {
+    font-size: 1.25rem;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.8);
+    font-family: var(--font-body);
+}
+
+.trust-badges-section {
+    padding: 6rem 0;
+    background-color: var(--color-card-bg);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.trust-badges-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4rem;
+}
+
+.trust-badge-item {
+    text-align: center;
+    padding: 2rem;
+}
+
+.badge-icon-large {
+    color: var(--color-accent-blue);
+    margin-bottom: 2rem;
+}
+
+.trust-badge-item h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.trust-badge-item p {
+    color: var(--color-text-muted);
+    line-height: 1.6;
+}
+
+.testimonials-section {
+    padding: 8rem 0;
+}
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 3rem;
+}
+
+.testimonial-card {
+    position: relative;
+    background-color: var(--color-card-bg);
+    padding: 3rem 2.5rem;
+    border-radius: var(--radius-primary);
+    border: 1px solid var(--color-border);
+    display: flex;
+    flex-direction: column;
+}
+
+.quote-icon-bg {
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+    color: var(--color-border);
+    opacity: 0.5;
+    z-index: 1;
+}
+
+.testimonial-quote {
+    position: relative;
+    z-index: 2;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--color-text-navy);
+    margin-bottom: 2rem;
+    flex: 1;
+    font-style: italic;
+}
+
+.testimonial-author {
+    border-top: 1px solid var(--color-border);
+    padding-top: 1.5rem;
+}
+
+.testimonial-author h4 {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    margin-bottom: 0.25rem;
+}
+
+.testimonial-author span {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+@media (max-width: 992px) {
+    .trust-badges-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}

@@ -1,0 +1,317 @@
+/* Procedure Detail Styles */
+.proc-hero {
+    position: relative;
+    height: 60vh;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+}
+
+.proc-hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.proc-hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(11, 12, 16, 0.9), rgba(11, 12, 16, 0.3));
+}
+
+.proc-hero-content {
+    position: relative;
+    z-index: 10;
+    color: var(--color-warm-white);
+    padding-top: 10vh;
+}
+
+.proc-hero-title {
+    font-size: clamp(2.5rem, 4vw, 3.5rem);
+    margin-bottom: 0.5rem;
+}
+
+.proc-hero-subtitle {
+    font-size: 1.125rem;
+    color: var(--color-desert-sand);
+    font-family: var(--font-heading);
+    font-style: italic;
+    max-width: 600px;
+}
+
+.proc-layout {
+    display: grid;
+    grid-template-columns: 1fr 350px;
+    gap: 4rem;
+    align-items: start;
+}
+
+.proc-overview-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    background-color: var(--color-gray-100);
+    padding: 2rem;
+    border-radius: var(--radius-sm);
+    margin-bottom: 4rem;
+    margin-top: -3rem;
+    /* overlap with section padding initially if wanted */
+}
+
+.overview-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.overview-icon {
+    color: var(--color-desert-sand-dark);
+}
+
+.overview-label {
+    display: block;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--color-gray-400);
+}
+
+.overview-value {
+    display: block;
+    font-weight: 500;
+    color: var(--color-obsidian-black);
+    font-size: 0.95rem;
+}
+
+.proc-section {
+    margin-bottom: 4rem;
+}
+
+.proc-h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: var(--color-obsidian-black);
+}
+
+.proc-text {
+    font-size: 1.1rem;
+    color: var(--color-gray-800);
+    line-height: 1.8;
+    margin-bottom: 2rem;
+}
+
+/* 3D Interactive Diagram Area Simulation */
+.diagram-area {
+    background-color: var(--color-obsidian-black);
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    margin-top: 2rem;
+}
+
+.diagram-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    color: var(--color-warm-white);
+    border-bottom: 1px solid var(--color-gray-800);
+}
+
+.diagram-header h3 {
+    font-size: 1rem;
+    letter-spacing: 1px;
+}
+
+.diagram-badge {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    background-color: rgba(244, 164, 96, 0.2);
+    color: var(--color-desert-sand);
+    padding: 0.25rem 0.5rem;
+    border-radius: var(--radius-sm);
+}
+
+.diagram-visual {
+    position: relative;
+    height: 400px;
+}
+
+.diagram-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.6;
+    /* Medical imaging feel */
+    filter: grayscale(100%) contrast(1.2);
+}
+
+.diagram-point {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+}
+
+.point-pulse {
+    width: 12px;
+    height: 12px;
+    background-color: var(--color-desert-sand);
+    border-radius: 50%;
+    box-shadow: 0 0 0 0 rgba(244, 164, 96, 0.7);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(244, 164, 96, 0.7);
+    }
+
+    70% {
+        box-shadow: 0 0 0 10px rgba(244, 164, 96, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(244, 164, 96, 0);
+    }
+}
+
+.point-label {
+    background-color: rgba(11, 12, 16, 0.8);
+    color: var(--color-warm-white);
+    padding: 0.25rem 0.75rem;
+    font-size: 0.75rem;
+    border-radius: var(--radius-sm);
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: all var(--transition-fast);
+    pointer-events: none;
+}
+
+.diagram-point:hover .point-label {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Rough coordinates for points on dummy image */
+.point-1 {
+    top: 30%;
+    left: 25%;
+}
+
+.point-2 {
+    top: 45%;
+    left: 45%;
+}
+
+.point-3 {
+    top: 70%;
+    left: 35%;
+}
+
+/* Recovery Table */
+.recovery-table-wrapper {
+    overflow-x: auto;
+}
+
+.recovery-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.recovery-table th,
+.recovery-table td {
+    padding: 1.25rem 1rem;
+    border-bottom: 1px solid var(--color-gray-200);
+}
+
+.recovery-table th {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    color: var(--color-obsidian-black);
+    background-color: var(--color-gray-100);
+}
+
+.recovery-table td {
+    color: var(--color-gray-800);
+    font-size: 0.95rem;
+}
+
+/* Sticky Widget Sidebar */
+.proc-sidebar {
+    position: relative;
+}
+
+.sticky-widget {
+    position: sticky;
+    top: 100px;
+    background-color: var(--color-warm-white);
+    border: 1px solid var(--color-gray-200);
+    border-radius: var(--radius-sm);
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(11, 12, 16, 0.05);
+}
+
+.widget-title {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.widget-text {
+    font-size: 0.875rem;
+    color: var(--color-gray-400);
+    margin-bottom: 1.5rem;
+}
+
+.mb-3 {
+    margin-bottom: 1rem;
+}
+
+.mb-4 {
+    margin-bottom: 1.5rem;
+}
+
+.widget-btn {
+    width: 100%;
+}
+
+.widget-footer {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--color-gray-200);
+    text-align: center;
+}
+
+.virtual-consult-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    color: var(--color-desert-sand-dark);
+    font-weight: 500;
+    transition: color var(--transition-fast);
+}
+
+.virtual-consult-link:hover {
+    color: var(--color-obsidian-black);
+}
+
+@media (max-width: 1024px) {
+    .proc-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .proc-overview-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+}

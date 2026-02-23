@@ -1,0 +1,182 @@
+/* Layout shared styles for these pages */
+.lifestyle-page,
+.about-page {
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.lifestyle-hero,
+.about-hero {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.lifestyle-hero h1,
+.about-hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 15px;
+}
+
+.lifestyle-hero p,
+.about-hero p {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+}
+
+.section-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.section-header h2 {
+    font-size: 2rem;
+}
+
+.cards-grid,
+.trust-badges-section,
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.guide-card,
+.trust-badge {
+    overflow: hidden;
+}
+
+.trust-badge {
+    padding: 40px 30px;
+    transition: transform 0.3s ease;
+}
+
+.trust-badge:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--neon-shadow);
+}
+
+.badge-icon {
+    margin: 0 auto 20px;
+}
+
+.card-image {
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    background-color: #2a2a2a;
+}
+
+.card-image.jebel-jais {
+    background-image: url('https://images.unsplash.com/photo-1627454819213-f56f18ed4085?q=80&w=2670&auto=format&fit=crop');
+}
+
+.card-image.liwa-oasis {
+    background-image: url('https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=80&w=2621&auto=format&fit=crop');
+}
+
+.card-image.burj-club {
+    background-image: url('https://images.unsplash.com/photo-1518684079-3c830dcef090?q=80&w=2574&auto=format&fit=crop');
+}
+
+.card-image.palm-jumeirah {
+    background-image: url('https://images.unsplash.com/photo-1546412414-e1885259563a?q=80&w=2574&auto=format&fit=crop');
+}
+
+.card-content {
+    padding: 25px;
+    background: #1a1a1a;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-top: none;
+}
+
+.card-content h3 {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+}
+
+.card-content p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.perk-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 215, 0, 0.1);
+    color: var(--accent-color);
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    border: 1px solid rgba(255, 215, 0, 0.3);
+    margin-top: 10px;
+}
+
+.mt-12 {
+    margin-top: 60px;
+}
+
+.mt-4 {
+    margin-top: 20px;
+}
+
+.mb-8 {
+    margin-bottom: 40px;
+}
+
+.mb-4 {
+    margin-bottom: 20px;
+}
+
+.mb-6 {
+    margin-bottom: 30px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-accent {
+    color: var(--accent-color);
+}
+
+.text-muted {
+    color: var(--text-muted);
+}
+
+.text-3xl {
+    font-size: 2.5rem;
+}
+
+.text-2xl {
+    font-size: 2rem;
+}
+
+.font-bold {
+    font-weight: bold;
+}
+
+.w-full {
+    width: 100%;
+}
+
+.testimonial-card {
+    padding: 40px;
+}
+
+.quote {
+    font-size: 1.1rem;
+    font-style: italic;
+    line-height: 1.8;
+    color: #ddd;
+}
+
+.client-name {
+    color: var(--accent-color);
+}

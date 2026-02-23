@@ -1,0 +1,235 @@
+/* Trust & About Styles */
+.surgeon-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.surgeon-image-wrapper {
+    position: relative;
+}
+
+.surgeon-image {
+    border-radius: var(--radius-sm);
+    box-shadow: 0 20px 40px rgba(11, 12, 16, 0.1);
+    width: 100%;
+}
+
+.surgeon-credentials {
+    position: absolute;
+    bottom: 2rem;
+    left: -2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.credential-badge {
+    background-color: var(--color-warm-white);
+    padding: 1rem 1.5rem;
+    border-radius: var(--radius-sm);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-weight: 500;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.credential-icon {
+    color: var(--color-desert-sand-dark);
+}
+
+.surgeon-name {
+    font-size: 2.5rem;
+    line-height: 1.2;
+    margin-bottom: 0.5rem;
+}
+
+.surgeon-title {
+    color: var(--color-desert-sand-dark);
+    font-size: 1.125rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 2rem;
+}
+
+.bio-content {
+    font-size: 1.125rem;
+    color: var(--color-gray-800);
+    line-height: 1.8;
+    margin-bottom: 3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.affiliations {
+    border-top: 1px solid var(--color-gray-200);
+    padding-top: 2rem;
+}
+
+.affiliations-title {
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--color-gray-400);
+    margin-bottom: 1.5rem;
+}
+
+.affiliations-grid {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.affiliation-logo {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    color: var(--color-gray-300);
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+/* Before/After Gallery */
+.bg-gallery {
+    background-color: var(--color-obsidian-black);
+    color: var(--color-warm-white);
+}
+
+.bg-gallery .section-title {
+    color: var(--color-warm-white);
+}
+
+.bg-gallery .section-body {
+    color: var(--color-gray-400);
+    max-width: 600px;
+}
+
+.gallery-header {
+    margin-bottom: 4rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.ba-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 4rem;
+}
+
+.ba-card {
+    background-color: var(--color-obsidian-black-light);
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    border: 1px solid var(--color-gray-800);
+}
+
+.ba-images {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    background-color: var(--color-gray-800);
+    /* creates a tiny gap line */
+}
+
+.ba-image-container {
+    position: relative;
+    height: 300px;
+    overflow: hidden;
+}
+
+.ba-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: filter 0.5s ease, transform 0.5s ease;
+}
+
+.blurred-img {
+    filter: blur(15px) grayscale(50%);
+    transform: scale(1.1);
+    /* Prevent blur edges from showing */
+}
+
+.blur-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(11, 12, 16, 0.4);
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.blur-overlay span {
+    background-color: rgba(250, 249, 246, 0.9);
+    color: var(--color-obsidian-black);
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+/* Hover Effect - Remove Blur */
+.ba-images:hover .ba-img {
+    filter: blur(0) grayscale(0);
+    transform: scale(1);
+}
+
+.ba-images:hover .blur-overlay {
+    opacity: 0;
+}
+
+.ba-label {
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+    background-color: rgba(11, 12, 16, 0.7);
+    color: var(--color-warm-white);
+    padding: 0.25rem 0.75rem;
+    border-radius: var(--radius-sm);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.ba-details {
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.ba-procedure {
+    font-size: 1.125rem;
+    color: var(--color-warm-white);
+    font-family: var(--font-heading);
+}
+
+@media (max-width: 900px) {
+    .surgeon-container {
+        grid-template-columns: 1fr;
+    }
+
+    .surgeon-credentials {
+        position: static;
+        flex-direction: row;
+        margin-top: -2rem;
+        margin-bottom: 2rem;
+        padding: 0 1rem;
+    }
+
+    .ba-grid {
+        grid-template-columns: 1fr;
+    }
+}

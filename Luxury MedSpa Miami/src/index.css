@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,400&display=swap');
+
+:root {
+  /* Design Tokens: Colors - Aura Aesthetics Luxury MedSpa */
+  --color-primary: #FDFDFD; /* Pearl White - Background */
+  --color-accent: #B76E79;  /* Rose Gold - Call to Action & Highlights */
+  --color-accent-hover: #A05F68;
+  --color-text-main: #333333; /* Deep Charcoal - Text */
+  --color-text-muted: #666666;
+  --color-border: rgba(51, 51, 51, 0.1);
+  --color-surface: rgba(255, 255, 255, 0.8);
+  
+  /* Admin Console Specific Tokens */
+  --color-admin-bg: #F4F6F8;
+  --color-admin-surface: #FFFFFF;
+  --color-admin-nav: #2B2B2B;
+
+  /* Typography */
+  --font-header: 'Cinzel', serif;
+  --font-body: 'Lato', sans-serif;
+
+  /* Borders & Shadows */
+  --border-radius-soft: 12px;
+  --border-radius-pill: 9999px;
+  --shadow-subtle: 0 4px 20px rgba(0, 0, 0, 0.05);
+  --shadow-glass: 0 8px 32px rgba(0, 0, 0, 0.1);
+  
+  /* Frosted Glass Overlay Token */
+  --glass-bg: rgba(253, 253, 253, 0.65);
+  --glass-border: rgba(255, 255, 255, 0.3);
+  --glass-backdrop: blur(16px);
+}
+
+/* CSS Reset & Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-primary);
+  color: var(--color-text-main);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-header);
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+button {
+  font-family: var(--font-body);
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Utility Classes for "Quiet Luxury" Aesthetic */
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.text-accent {
+  color: var(--color-accent);
+}
+
+/* Frosted Glass Component */
+.glass-panel {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-backdrop);
+  -webkit-backdrop-filter: var(--glass-backdrop);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--border-radius-soft);
+  box-shadow: var(--shadow-glass);
+}
+
+/* Core Buttons */
+.btn-primary {
+  background-color: var(--color-accent);
+  color: #fff;
+  padding: 0.75rem 2rem;
+  border-radius: var(--border-radius-pill);
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+}
+.btn-primary:hover {
+  background-color: var(--color-accent-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(183, 110, 121, 0.3);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--color-text-main);
+  border: 1px solid var(--color-text-main);
+  padding: 0.75rem 2rem;
+  border-radius: var(--border-radius-pill);
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+.btn-secondary:hover {
+  background-color: var(--color-text-main);
+  color: var(--color-primary);
+}
+
+/* Dynamic Hover Effects */
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-glass);
+}
+
+/* Base fade-in animation for pages */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out forwards;
+}

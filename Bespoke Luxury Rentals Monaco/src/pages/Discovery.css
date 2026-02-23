@@ -1,0 +1,261 @@
+.discovery-page {
+    padding-top: 80px;
+    /* offset navbar */
+    min-height: 100vh;
+    background-color: var(--color-bg);
+}
+
+.discovery-header {
+    background-color: var(--color-card-bg);
+    padding: 4rem 0;
+    border-bottom: 1px solid var(--color-border);
+    text-align: center;
+}
+
+.discovery-title {
+    font-size: 3rem;
+    letter-spacing: 0.05em;
+    margin-bottom: 1rem;
+}
+
+.discovery-subtitle {
+    color: var(--color-text-muted);
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.discovery-container {
+    display: flex;
+    gap: 3rem;
+    padding: 4rem 1.5rem;
+    position: relative;
+}
+
+/* Sidebar */
+.discovery-sidebar {
+    width: 280px;
+    flex-shrink: 0;
+    border-right: 1px solid var(--color-border);
+    padding-right: 2rem;
+}
+
+.filter-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.filter-header h3 {
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.close-filters-btn {
+    display: none;
+    font-size: 2rem;
+    line-height: 1;
+}
+
+.filter-section {
+    margin-bottom: 2.5rem;
+}
+
+.filter-title {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.filter-options {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.filter-checkbox-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    cursor: pointer;
+    margin-bottom: 0.75rem;
+}
+
+.filter-checkbox-wrapper input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.custom-checkbox {
+    width: 20px;
+    height: 20px;
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+    /* Changed to match --radius-primary */
+    background-color: transparent;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--transition-fast);
+}
+
+.filter-checkbox-wrapper input:checked~.custom-checkbox {
+    background-color: var(--color-accent-blue);
+    border-color: var(--color-accent-blue);
+}
+
+.filter-checkbox-wrapper input:checked~.custom-checkbox::after {
+    content: '';
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+    margin-bottom: 2px;
+}
+
+.filter-label {
+    font-size: 0.95rem;
+    color: var(--color-text-navy);
+}
+
+/* Main Area */
+.discovery-main {
+    flex: 1;
+    min-width: 0;
+}
+
+.discovery-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.mobile-filter-btn {
+    display: none;
+}
+
+.category-tabs {
+    display: flex;
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+
+.category-tabs::-webkit-scrollbar {
+    display: none;
+}
+
+.tab-btn {
+    padding: 1rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--color-text-muted);
+    border-bottom: 2px solid transparent;
+    white-space: nowrap;
+    transition: all var(--transition-fast);
+}
+
+.tab-btn:hover {
+    color: var(--color-text-navy);
+}
+
+.tab-btn.active {
+    color: var(--color-accent-blue);
+    border-bottom-color: var(--color-accent-blue);
+}
+
+.results-count {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+}
+
+.no-results {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 5rem 2rem;
+    background-color: var(--color-card-bg);
+    border-radius: var(--radius-primary);
+    border: 1px dashed var(--color-border);
+}
+
+.no-results h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.no-results p {
+    color: var(--color-text-muted);
+}
+
+@media (max-width: 992px) {
+    .discovery-container {
+        flex-direction: column;
+        padding-top: 2rem;
+    }
+
+    .discovery-controls {
+        flex-direction: column-reverse;
+        align-items: flex-start;
+        gap: 1rem;
+        border-bottom: none;
+        margin-bottom: 1rem;
+    }
+
+    .category-tabs {
+        width: 100%;
+        border-bottom: 1px solid var(--color-border);
+    }
+
+    .mobile-filter-btn {
+        display: flex;
+        margin-bottom: 1rem;
+    }
+
+    .discovery-sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 320px;
+        height: 100vh;
+        background-color: var(--color-bg);
+        z-index: 2000;
+        padding: 2rem;
+        border-right: none;
+        box-shadow: var(--shadow-xl);
+        transform: translateX(-100%);
+        transition: transform var(--transition-normal);
+        overflow-y: auto;
+    }
+
+    .discovery-sidebar.open {
+        transform: translateX(0);
+    }
+
+    .close-filters-btn {
+        display: block;
+        cursor: pointer;
+        background: none;
+        border: none;
+        color: var(--color-text-navy);
+    }
+}

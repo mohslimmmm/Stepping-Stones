@@ -1,0 +1,148 @@
+/* Discovery.css */
+.discovery-page {
+    padding-top: 6rem;
+    min-height: 100vh;
+}
+
+.discovery-header {
+    background-color: var(--color-surface);
+    padding: 4rem 0;
+    text-align: center;
+    margin-bottom: 4rem;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.discovery-header h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.discovery-header p {
+    color: var(--color-text-muted);
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.discovery-layout {
+    display: flex;
+    gap: 3rem;
+    padding-bottom: 6rem;
+}
+
+.discovery-sidebar {
+    width: 250px;
+    flex-shrink: 0;
+}
+
+.sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.sidebar-header h3 {
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.mobile-filter-btn {
+    display: none;
+}
+
+.sidebar-menu {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.filter-btn {
+    width: 100%;
+    text-align: left;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    color: var(--color-text-muted);
+    border-radius: var(--border-radius-soft);
+    transition: all 0.3s ease;
+}
+
+.filter-btn:hover {
+    background-color: rgba(51, 51, 51, 0.05);
+    color: var(--color-text-main);
+}
+
+.filter-btn.active {
+    background-color: var(--color-accent);
+    color: white;
+    font-weight: 500;
+}
+
+.discovery-main {
+    flex: 1;
+}
+
+.treatments-grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.card-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: 0.5rem;
+}
+
+.treatment-price {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-text-main);
+}
+
+.no-results {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 4rem;
+    color: var(--color-text-muted);
+    background: var(--color-surface);
+    border-radius: var(--border-radius-soft);
+}
+
+@media (max-width: 1024px) {
+    .treatments-grid-3 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .discovery-layout {
+        flex-direction: column;
+    }
+
+    .discovery-sidebar {
+        width: 100%;
+    }
+
+    .mobile-filter-btn {
+        display: block;
+    }
+
+    .sidebar-menu {
+        display: none;
+    }
+
+    .sidebar-menu.open {
+        display: flex;
+    }
+
+    .treatments-grid-3 {
+        grid-template-columns: 1fr;
+    }
+}

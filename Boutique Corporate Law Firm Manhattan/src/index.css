@@ -1,0 +1,114 @@
+:root {
+  /* Vanguard & Shield Design Tokens */
+  --bg-platinum: #E5E4E2;
+  --accent-charcoal: #36454F;
+  --accent-oxblood: #4A0404;
+  --text-black: #000000;
+  --text-white: #FFFFFF;
+  --text-muted: #555555;
+  
+  --font-header: 'Merriweather', serif;
+  --font-body: 'Roboto', sans-serif;
+  
+  --radius-strong: 2px;
+  --shadow-subtle: 0 4px 12px rgba(0, 0, 0, 0.05);
+  --shadow-strong: 0 8px 24px rgba(0, 0, 0, 0.1);
+  --transition-smooth: all 0.3s ease;
+  
+  --max-width: 1200px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg-platinum);
+  color: var(--text-black);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-header);
+  font-weight: 700;
+  color: var(--accent-charcoal);
+  line-height: 1.2;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: var(--transition-smooth);
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+  transition: var(--transition-smooth);
+}
+
+/* Base UI Components */
+.btn-primary {
+  background-color: var(--accent-charcoal);
+  color: var(--bg-platinum);
+  padding: 12px 24px;
+  border-radius: var(--radius-strong);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.85rem;
+  border: 1px solid var(--accent-charcoal);
+}
+
+.btn-primary:hover {
+  background-color: transparent;
+  color: var(--accent-charcoal);
+}
+
+.btn-secondary {
+  border: 1px solid var(--accent-charcoal);
+  color: var(--accent-charcoal);
+  padding: 12px 24px;
+  border-radius: var(--radius-strong);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.85rem;
+}
+
+.btn-secondary:hover {
+  background-color: var(--accent-charcoal);
+  color: var(--bg-platinum);
+}
+
+.accent-oxblood {
+  color: var(--accent-oxblood);
+}
+
+.bg-charcoal {
+  background-color: var(--accent-charcoal);
+  color: var(--text-white);
+}
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Modern Utilities */
+.glass {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+section {
+  padding: 80px 0;
+}

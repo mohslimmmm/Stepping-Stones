@@ -1,0 +1,129 @@
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: all var(--transition-normal);
+    padding: 0 1.5rem;
+}
+
+.navbar-transparent {
+    background-color: transparent;
+    color: #FFFFFF;
+}
+
+.navbar-solid {
+    background-color: var(--color-bg);
+    box-shadow: var(--shadow-sm);
+    color: var(--color-text-navy);
+}
+
+.navbar-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-brand {
+    font-family: var(--font-header);
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    color: inherit;
+}
+
+.navbar-transparent .navbar-brand {
+    color: #FFFFFF;
+}
+
+.navbar-links {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.nav-link {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: inherit;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.nav-link:hover {
+    color: var(--color-accent-blue);
+}
+
+.btn-host {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    border: 1px solid var(--color-border);
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius-primary);
+    transition: all var(--transition-fast);
+}
+
+.navbar-transparent .btn-host {
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.navbar-solid .btn-host {
+    border-color: var(--color-border);
+    color: var(--color-text-navy);
+}
+
+.navbar-solid .btn-host:hover {
+    border-color: var(--color-text-navy);
+    color: var(--color-text-navy);
+    background: var(--color-card-bg);
+}
+
+.navbar-transparent .btn-host:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: #FFFFFF;
+}
+
+.navbar-toggle {
+    display: none;
+    color: inherit;
+}
+
+@media (max-width: 768px) {
+    .navbar-toggle {
+        display: block;
+    }
+
+    .navbar-links {
+        position: absolute;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background-color: var(--color-bg);
+        flex-direction: column;
+        padding: 2rem;
+        gap: 1.5rem;
+        box-shadow: var(--shadow-md);
+        transform: translateY(-10px);
+        opacity: 0;
+        visibility: hidden;
+        transition: all var(--transition-normal);
+    }
+
+    .navbar-links.active {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .navbar-links .nav-link {
+        color: var(--color-text-navy);
+        font-size: 1.1rem;
+        width: 100%;
+        text-align: center;
+    }
+}
