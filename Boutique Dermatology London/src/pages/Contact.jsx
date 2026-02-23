@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { MapPin, Phone, Mail, Clock } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 const Contact = () => {
   const [submitted, setSubmitted] = useState(false);
@@ -9,50 +10,58 @@ const Contact = () => {
     setSubmitted(true);
   };
 
-  return (
-    <div className="container py-24 fade-in">
-      <div className="text-center max-w-2xl mx-auto mb-16">
-        <h1 className="text-5xl font-header text-slate-dark mb-6 tracking-wide">Contact & Booking</h1>
-        <p className="font-body text-slate opacity-80 leading-relaxed">
-          Request a private consultation with our clinical specialists. We operate on a strict appointment-only basis to ensure absolute discretion and dedicated time for every patient.
-        </p>
-      </div>
+  const fadeUp = {
+    hidden: { opacity: 0, y: 30 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } }
+  };
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+  return (
+    <div className="container py-32 min-h-[90vh]">
+      <motion.div initial="hidden" animate="show" variants={{ hidden: {}, show: { transition: { staggerChildren: 0.15 } } }} className="text-center max-w-3xl mx-auto mb-20">
+        <motion.h1 variants={fadeUp} className="text-6xl font-header text-slate-dark mb-8 tracking-wide">Contact & Booking</motion.h1>
+        <motion.p variants={fadeUp} className="font-body text-slate-grey opacity-90 leading-relaxed text-lg">
+          Request a private consultation with our clinical specialists. We operate on a strict appointment-only basis to ensure absolute discretion and dedicated time for every patient.
+        </motion.p>
+      </motion.div>
+
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start max-w-6xl mx-auto">
         
         {/* Contact Form */}
-        <div className="bg-ivory border border-slate-grey/20 p-8 md:p-12">
+        <motion.div 
+          initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.3, duration: 0.8 }}
+          className="bg-ivory border border-slate-grey/10 p-10 md:p-16 shadow-sm"
+        >
           {submitted ? (
-             <div className="text-center py-16">
-               <h3 className="font-header text-2xl text-slate-dark mb-4">Request Received</h3>
-               <p className="text-slate opacity-80 font-body">Our concierge team will contact you shortly to confirm your consultation time.</p>
-             </div>
+             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-center py-24">
+               <h3 className="font-header text-4xl text-slate-dark mb-6">Request Received</h3>
+               <p className="text-slate-grey opacity-90 font-body text-lg">Our concierge team will contact you shortly to confirm your consultation time.</p>
+             </motion.div>
           ) : (
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                  <label className="block text-xs uppercase tracking-widest text-slate font-bold mb-2">First Name</label>
-                  <input required type="text" className="w-full border-b border-slate-grey/40 bg-transparent py-2 focus:outline-none focus:border-slate-dark transition-colors font-body" />
+            <form onSubmit={handleSubmit} className="space-y-10">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+                <div className="relative group">
+                  <input required type="text" id="firstName" className="peer w-full border-b border-slate-grey/30 bg-transparent py-3 focus:outline-none focus:border-slate-dark transition-colors font-body text-slate-dark placeholder-transparent" placeholder="First Name" />
+                  <label htmlFor="firstName" className="absolute left-0 top-3 text-[10px] uppercase tracking-[0.2em] font-bold text-slate-grey/60 transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:top-3 peer-focus:-top-4 peer-focus:text-[10px] peer-focus:text-slate-dark">First Name</label>
                 </div>
-                <div>
-                  <label className="block text-xs uppercase tracking-widest text-slate font-bold mb-2">Last Name</label>
-                  <input required type="text" className="w-full border-b border-slate-grey/40 bg-transparent py-2 focus:outline-none focus:border-slate-dark transition-colors font-body" />
+                <div className="relative group">
+                  <input required type="text" id="lastName" className="peer w-full border-b border-slate-grey/30 bg-transparent py-3 focus:outline-none focus:border-slate-dark transition-colors font-body text-slate-dark placeholder-transparent" placeholder="Last Name" />
+                  <label htmlFor="lastName" className="absolute left-0 top-3 text-[10px] uppercase tracking-[0.2em] font-bold text-slate-grey/60 transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:top-3 peer-focus:-top-4 peer-focus:text-[10px] peer-focus:text-slate-dark">Last Name</label>
                 </div>
               </div>
 
-              <div>
-                <label className="block text-xs uppercase tracking-widest text-slate font-bold mb-2">Email Address</label>
-                <input required type="email" className="w-full border-b border-slate-grey/40 bg-transparent py-2 focus:outline-none focus:border-slate-dark transition-colors font-body" />
+              <div className="relative group">
+                <input required type="email" id="email" className="peer w-full border-b border-slate-grey/30 bg-transparent py-3 focus:outline-none focus:border-slate-dark transition-colors font-body text-slate-dark placeholder-transparent" placeholder="Email Address" />
+                <label htmlFor="email" className="absolute left-0 top-3 text-[10px] uppercase tracking-[0.2em] font-bold text-slate-grey/60 transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:top-3 peer-focus:-top-4 peer-focus:text-[10px] peer-focus:text-slate-dark">Email Address</label>
               </div>
 
-              <div>
-                <label className="block text-xs uppercase tracking-widest text-slate font-bold mb-2">Phone Number</label>
-                <input required type="tel" className="w-full border-b border-slate-grey/40 bg-transparent py-2 focus:outline-none focus:border-slate-dark transition-colors font-body" />
+              <div className="relative group">
+                <input required type="tel" id="phone" className="peer w-full border-b border-slate-grey/30 bg-transparent py-3 focus:outline-none focus:border-slate-dark transition-colors font-body text-slate-dark placeholder-transparent" placeholder="Phone Number" />
+                <label htmlFor="phone" className="absolute left-0 top-3 text-[10px] uppercase tracking-[0.2em] font-bold text-slate-grey/60 transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:top-3 peer-focus:-top-4 peer-focus:text-[10px] peer-focus:text-slate-dark">Phone Number</label>
               </div>
 
-              <div>
-                <label className="block text-xs uppercase tracking-widest text-slate font-bold mb-2">Primary Concern / Treatment Interest</label>
-                <select className="w-full border-b border-slate-grey/40 bg-transparent py-2 focus:outline-none focus:border-slate-dark transition-colors font-body opacity-80">
+              <div className="relative group pt-4">
+                <label className="block text-[10px] uppercase tracking-[0.2em] text-slate-dark font-bold mb-4">Primary Concern / Treatment Interest</label>
+                <select className="w-full border-b border-slate-grey/30 bg-transparent py-3 focus:outline-none focus:border-slate-dark transition-colors font-body text-slate-dark opacity-90 cursor-pointer">
                   <option>General Biometric Assessment</option>
                   <option>Cosmetic Dermatology (Lasers, Injectables)</option>
                   <option>Medical Dermatology (Acne, Rosacea)</option>
@@ -61,62 +70,62 @@ const Contact = () => {
                 </select>
               </div>
 
-              <div>
-                <label className="block text-xs uppercase tracking-widest text-slate font-bold mb-2">Message (Optional)</label>
-                <textarea rows="4" className="w-full border border-slate-grey/40 bg-transparent p-3 focus:outline-none focus:border-slate-dark transition-colors font-body resize-none"></textarea>
+              <div className="relative group pt-4">
+                <label className="block text-[10px] uppercase tracking-[0.2em] text-slate-dark font-bold mb-4">Message (Optional)</label>
+                <textarea rows="4" className="w-full border border-slate-grey/30 bg-transparent p-4 focus:outline-none focus:border-slate-dark transition-colors font-body text-slate-dark resize-none placeholder-slate-grey/40" placeholder="Please provide any additional details..."></textarea>
               </div>
 
-              <button type="submit" className="btn-primary w-full mt-4">Submit Request</button>
+              <button type="submit" className="btn-primary w-full mt-6 py-4 tracking-[0.2em]">Request Appointment</button>
             </form>
           )}
-        </div>
+        </motion.div>
 
         {/* Info & Map placeholder */}
-        <div className="space-y-12">
+        <motion.div initial={{ opacity: 0, x: 30 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.5, duration: 0.8 }} className="space-y-16">
           
           <div>
-            <h3 className="font-header text-2xl text-slate-dark mb-6 tracking-wide">Clinic Details</h3>
-            <ul className="space-y-6">
-              <li className="flex gap-4">
-                <MapPin className="text-blush flex-shrink-0" />
+            <h3 className="font-header text-4xl text-slate-dark mb-10 tracking-wide">Clinic Details</h3>
+            <ul className="space-y-10">
+              <li className="flex gap-6">
+                <div className="mt-1"><MapPin className="text-soft-blush-dark" size={24} strokeWidth={1.5} /></div>
                 <div>
-                  <strong className="block text-sm uppercase tracking-widest text-slate font-bold mb-1">Address</strong>
-                  <span className="font-body text-slate opacity-80">10 Harley Street<br/>Marylebone, London<br/>W1G 9PF</span>
+                  <strong className="block text-[10px] uppercase tracking-[0.2em] text-slate-dark font-bold mb-2">Address</strong>
+                  <span className="font-body text-slate-grey opacity-90 text-lg leading-relaxed">10 Harley Street<br/>Marylebone, London<br/>W1G 9PF</span>
                 </div>
               </li>
-              <li className="flex gap-4">
-                <Phone className="text-blush flex-shrink-0" />
+              <li className="flex gap-6">
+                <div className="mt-1"><Phone className="text-soft-blush-dark" size={24} strokeWidth={1.5} /></div>
                 <div>
-                  <strong className="block text-sm uppercase tracking-widest text-slate font-bold mb-1">Direct Line</strong>
-                  <span className="font-body text-slate opacity-80">+44 (0) 20 7123 4567</span>
+                  <strong className="block text-[10px] uppercase tracking-[0.2em] text-slate-dark font-bold mb-2">Direct Line</strong>
+                  <span className="font-body text-slate-grey opacity-90 text-lg">+44 (0) 20 7123 4567</span>
                 </div>
               </li>
-              <li className="flex gap-4">
-                <Mail className="text-blush flex-shrink-0" />
+              <li className="flex gap-6">
+                <div className="mt-1"><Mail className="text-soft-blush-dark" size={24} strokeWidth={1.5} /></div>
                 <div>
-                  <strong className="block text-sm uppercase tracking-widest text-slate font-bold mb-1">Email Concierge</strong>
-                  <span className="font-body text-slate opacity-80">concierge@harleystreetskin.co.uk</span>
+                  <strong className="block text-[10px] uppercase tracking-[0.2em] text-slate-dark font-bold mb-2">Email Concierge</strong>
+                  <span className="font-body text-slate-grey opacity-90 text-lg">concierge@harleystreetskin.co.uk</span>
                 </div>
               </li>
-              <li className="flex gap-4">
-                <Clock className="text-blush flex-shrink-0" />
+              <li className="flex gap-6">
+                <div className="mt-1"><Clock className="text-soft-blush-dark" size={24} strokeWidth={1.5} /></div>
                 <div>
-                  <strong className="block text-sm uppercase tracking-widest text-slate font-bold mb-1">Clinical Hours</strong>
-                  <span className="font-body text-slate opacity-80">Monday - Friday: 9am — 6pm<br/>Saturday: 10am — 4pm (By Request)</span>
+                  <strong className="block text-[10px] uppercase tracking-[0.2em] text-slate-dark font-bold mb-2">Clinical Hours</strong>
+                  <span className="font-body text-slate-grey opacity-90 text-lg leading-relaxed">Monday - Friday: 9am — 6pm<br/>Saturday: 10am — 4pm (By Request)</span>
                 </div>
               </li>
             </ul>
           </div>
 
-          <div className="bg-slate-grey/10 h-64 border border-slate-grey/20 flex items-center justify-center grayscale relative overflow-hidden">
+          <div className="bg-slate-grey/5 h-80 border border-slate-grey/10 flex items-center justify-center grayscale relative overflow-hidden group">
              {/* Map Placeholder simulating an elegant map */}
-             <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&q=80&w=800" alt="Harley St Map" className="absolute inset-0 w-full h-full object-cover opacity-50 grayscale" />
-             <div className="relative z-10 bg-ivory px-4 py-2 text-xs uppercase tracking-widest font-bold shadow-lg flex items-center gap-2">
-               <MapPin size={14} className="text-blush" /> Harley Street
+             <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&q=80&w=800" alt="Harley St Map" className="absolute inset-0 w-full h-full object-cover opacity-60 grayscale-[0.8] group-hover:scale-105 transition-transform duration-1000" />
+             <div className="relative z-10 bg-ivory/90 backdrop-blur px-6 py-3 text-xs uppercase tracking-[0.2em] font-bold shadow-lg flex items-center gap-3 text-slate-dark">
+               <MapPin size={16} className="text-soft-blush-dark" strokeWidth={1.5} /> Harley Street Clinic
              </div>
           </div>
 
-        </div>
+        </motion.div>
       </div>
     </div>
   );
