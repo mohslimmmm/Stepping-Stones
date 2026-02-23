@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Filter, Search } from 'lucide-react';
 import './Fleet.css';
+import { fleetData } from '../../data/fleet';
 
 const Fleet = () => {
   const [activeTab, setActiveTab] = useState('hypercars');
@@ -72,70 +73,22 @@ const Fleet = () => {
 
         {/* Fleet Grid */}
         <main className="fleet-grid-main">
-          {/* Mock Vehicle 1 */}
-          <div className="car-card aerodynamic-card">
-            <div className="car-image lambo-revuelto"></div>
-            <div className="car-info">
-              <h3>Lamborghini Revuelto</h3>
-              <p className="car-specs">V12 Hybrid • 1001 HP • 2.5s 0-100</p>
-              <div className="car-price">
-                <span className="price-value">AED 8,500</span> <span className="price-period">/ day</span>
+          {fleetData.map((car) => (
+            <div key={car.id} className="car-card aerodynamic-card" style={car.bg ? { background: car.bg } : {}}>
+              <div 
+                className={`car-image ${car.imageClass}`} 
+                style={car.image ? { backgroundImage: `url('${car.image}')` } : {}}
+              ></div>
+              <div className="car-info">
+                <h3>{car.name}</h3>
+                <p className="car-specs">{car.specs}</p>
+                <div className="car-price">
+                  <span className="price-value">{car.priceStr}</span> <span className="price-period">/ day</span>
+                </div>
+                <Link to={`/fleet/${car.slug}`} className="btn-primary w-full text-center" style={{ display: 'block', marginTop: '15px' }}>Instant Booking</Link>
               </div>
-              <Link to="/fleet/revuelto" className="btn-primary w-full text-center" style={{ display: 'block', marginTop: '15px' }}>Instant Booking</Link>
             </div>
-          </div>
-
-          {/* Mock Vehicle 2 */}
-          <div className="car-card aerodynamic-card">
-            <div className="car-image sf90"></div>
-            <div className="car-info">
-              <h3>Ferrari SF90 Stradale</h3>
-              <p className="car-specs">V8 Hybrid • 986 HP • 2.5s 0-100</p>
-              <div className="car-price">
-                <span className="price-value">AED 9,000</span> <span className="price-period">/ day</span>
-              </div>
-              <Link to="/fleet/sf90" className="btn-primary w-full text-center" style={{ display: 'block', marginTop: '15px' }}>Instant Booking</Link>
-            </div>
-          </div>
-
-          {/* Mock Vehicle 3 */}
-          <div className="car-card aerodynamic-card" style={{ background: '#1a1a1a' }}>
-            <div className="car-image porsche-911" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1503376712351-1c4392433296?q=80&w=2670&auto=format&fit=crop')" }}></div>
-            <div className="car-info">
-              <h3>Porsche 911 Turbo S</h3>
-              <p className="car-specs">Flat-6 Twin-Turbo • 640 HP • 2.6s 0-100</p>
-              <div className="car-price">
-                <span className="price-value">AED 4,500</span> <span className="price-period">/ day</span>
-              </div>
-              <Link to="/fleet/911" className="btn-primary w-full text-center" style={{ display: 'block', marginTop: '15px' }}>Instant Booking</Link>
-            </div>
-          </div>
-
-          {/* Mock Vehicle 4 */}
-          <div className="car-card aerodynamic-card" style={{ background: '#1a1a1a' }}>
-            <div className="car-image rolls-cullinan"></div>
-            <div className="car-info">
-              <h3>Rolls-Royce Cullinan</h3>
-              <p className="car-specs">V12 Twin-Turbo • 563 HP • Ultimate Luxury</p>
-              <div className="car-price">
-                <span className="price-value">AED 6,000</span> <span className="price-period">/ day</span>
-              </div>
-              <Link to="/fleet/cullinan" className="btn-primary w-full text-center" style={{ display: 'block', marginTop: '15px' }}>Instant Booking</Link>
-            </div>
-          </div>
-          
-           {/* Mock Vehicle 5 */}
-          <div className="car-card aerodynamic-card" style={{ background: '#1a1a1a' }}>
-            <div className="car-image bentley" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1620021570779-7a72bb3a19fd?q=80&w=2670&auto=format&fit=crop')" }}></div>
-            <div className="car-info">
-              <h3>Bentley Continental GT</h3>
-              <p className="car-specs">W12 Twin-Turbo • 650 HP • Grand Tourer</p>
-              <div className="car-price">
-                <span className="price-value">AED 4,000</span> <span className="price-period">/ day</span>
-              </div>
-              <Link to="/fleet/bentley-gt" className="btn-primary w-full text-center" style={{ display: 'block', marginTop: '15px' }}>Instant Booking</Link>
-            </div>
-          </div>
+          ))}
         </main>
       </div>
     </div>
