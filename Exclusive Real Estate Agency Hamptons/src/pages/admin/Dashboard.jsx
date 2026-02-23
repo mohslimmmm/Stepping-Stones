@@ -1,118 +1,136 @@
 import React from 'react';
 import { DollarSign, Home, UserPlus, TrendingUp } from 'lucide-react';
+import { motion } from 'framer-motion';
+
+const staggerContainer = {
+  hidden: { opacity: 0 },
+  show: { opacity: 1, transition: { staggerChildren: 0.1 } }
+};
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 20 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } }
+};
 
 export const Dashboard = () => {
   return (
-    <div className="max-w-7xl mx-auto">
-      <h1 className="font-heading text-3xl text-primary mb-8">Performance Overview</h1>
+    <motion.div 
+      initial="hidden"
+      animate="show"
+      variants={staggerContainer}
+      className="max-w-7xl mx-auto"
+    >
+      <motion.h1 variants={fadeUp} className="font-heading text-4xl text-primary mb-10 tracking-wide">Performance Overview</motion.h1>
       
       {/* KPIs */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
         
-        <div className="bg-white p-6 shadow-sm border border-gray-100 relative overflow-hidden">
-          <div className="absolute top-0 right-0 p-4 opacity-5">
-            <DollarSign className="w-24 h-24" />
+        <motion.div variants={fadeUp} className="bg-white p-8 shadow-sm border border-primary/5 relative overflow-hidden group hover:shadow-md transition-shadow">
+          <div className="absolute top-0 right-0 p-4 opacity-5 transform group-hover:scale-110 group-hover:rotate-12 transition-transform duration-500">
+            <DollarSign className="w-32 h-32" />
           </div>
-          <p className="text-xs uppercase tracking-widest text-primary/50 mb-2">Total Portfolio Value</p>
-          <h3 className="font-heading text-3xl text-primary mb-2">$845.2M</h3>
-          <p className="text-sm text-green-600 flex items-center">
-            <TrendingUp className="w-4 h-4 mr-1" /> +12% this quarter
+          <p className="font-body text-[10px] uppercase tracking-[0.2em] font-bold text-accentBlue mb-3">Total Portfolio</p>
+          <h3 className="font-heading text-4xl text-primary mb-3">$845.2M</h3>
+          <p className="font-body text-xs text-accentGreen flex items-center font-bold">
+            <TrendingUp className="w-3 h-3 mr-1.5" strokeWidth={3} /> +12% this quarter
           </p>
-        </div>
+        </motion.div>
 
-        <div className="bg-white p-6 shadow-sm border border-gray-100 relative overflow-hidden">
-          <div className="absolute top-0 right-0 p-4 opacity-5">
-            <Home className="w-24 h-24" />
+        <motion.div variants={fadeUp} className="bg-white p-8 shadow-sm border border-primary/5 relative overflow-hidden group hover:shadow-md transition-shadow">
+          <div className="absolute top-0 right-0 p-4 opacity-5 transform group-hover:scale-110 group-hover:rotate-12 transition-transform duration-500">
+            <Home className="w-32 h-32" />
           </div>
-          <p className="text-xs uppercase tracking-widest text-primary/50 mb-2">Active Sales</p>
-          <h3 className="font-heading text-3xl text-primary mb-2">24</h3>
-          <p className="text-sm text-primary/60">Properties on market</p>
-        </div>
+          <p className="font-body text-[10px] uppercase tracking-[0.2em] font-bold text-accentBlue mb-3">Active Sales</p>
+          <h3 className="font-heading text-4xl text-primary mb-3">24</h3>
+          <p className="font-body text-xs text-primary/50">Properties on market</p>
+        </motion.div>
 
-        <div className="bg-white p-6 shadow-sm border border-gray-100 relative overflow-hidden">
-          <div className="absolute top-0 right-0 p-4 opacity-5">
-             <Home className="w-24 h-24" />
+        <motion.div variants={fadeUp} className="bg-white p-8 shadow-sm border border-primary/5 relative overflow-hidden group hover:shadow-md transition-shadow">
+          <div className="absolute top-0 right-0 p-4 opacity-5 transform group-hover:scale-110 group-hover:rotate-12 transition-transform duration-500">
+             <Home className="w-32 h-32" />
           </div>
-          <p className="text-xs uppercase tracking-widest text-primary/50 mb-2">Summer Rental Inventory</p>
-          <h3 className="font-heading text-3xl text-primary mb-2">142</h3>
-          <p className="text-sm text-primary/60">Available for current season</p>
-        </div>
+          <p className="font-body text-[10px] uppercase tracking-[0.2em] font-bold text-accentBlue mb-3">Rental Inventory</p>
+          <h3 className="font-heading text-4xl text-primary mb-3">142</h3>
+          <p className="font-body text-xs text-primary/50">Available for season</p>
+        </motion.div>
 
-        <div className="bg-white p-6 shadow-sm border border-gray-100 relative overflow-hidden">
-          <div className="absolute top-0 right-0 p-4 opacity-5">
-            <UserPlus className="w-24 h-24" />
+        <motion.div variants={fadeUp} className="bg-white p-8 shadow-sm border border-primary/5 relative overflow-hidden group hover:shadow-md transition-shadow">
+          <div className="absolute top-0 right-0 p-4 opacity-5 transform group-hover:scale-110 transition-transform duration-500">
+            <UserPlus className="w-32 h-32" />
           </div>
-          <p className="text-xs uppercase tracking-widest text-primary/50 mb-2">Active Leads</p>
-          <h3 className="font-heading text-3xl text-primary mb-2">18</h3>
-          <p className="text-sm text-primary/60">Qualified inquiries</p>
-        </div>
+          <p className="font-body text-[10px] uppercase tracking-[0.2em] font-bold text-accentBlue mb-3">Active Leads</p>
+          <h3 className="font-heading text-4xl text-primary mb-3">18</h3>
+          <p className="font-body text-xs text-primary/50">Qualified inquiries</p>
+        </motion.div>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
         {/* Recent Activity */}
-        <div className="bg-white p-6 shadow-sm border border-gray-100">
-          <h3 className="font-heading text-xl text-primary mb-6 border-b border-gray-100 pb-4">Recent Activity</h3>
-          <div className="space-y-6">
+        <motion.div variants={fadeUp} className="bg-white p-8 shadow-sm border border-primary/5">
+          <h3 className="font-heading text-2xl text-primary mb-8 border-b border-primary/10 pb-4 tracking-wide">Recent Activity</h3>
+          <div className="space-y-8">
             <div className="flex items-start">
-              <div className="w-2 h-2 bg-accentBlue rounded-full mt-2 mr-4"></div>
+              <div className="w-1.5 h-1.5 bg-accentBlue rounded-full mt-2 mr-6 relative before:absolute before:inset-[-4px] before:border before:border-accentBlue/30 before:rounded-full"></div>
               <div>
-                <p className="text-sm text-primary"><span className="font-bold">New Lead:</span> High-net-worth inquiry for Further Lane Estate</p>
-                <p className="text-xs text-primary/50 mt-1">2 hours ago</p>
+                <p className="font-body text-sm text-primary leading-relaxed"><span className="font-bold">New Lead:</span> High-net-worth inquiry for Further Lane Estate</p>
+                <p className="font-body text-[10px] uppercase tracking-widest text-primary/40 mt-2 font-bold">2 hours ago</p>
               </div>
             </div>
             <div className="flex items-start">
-              <div className="w-2 h-2 bg-accentGreen rounded-full mt-2 mr-4"></div>
+              <div className="w-1.5 h-1.5 bg-accentGreen rounded-full mt-2 mr-6 relative before:absolute before:inset-[-4px] before:border before:border-accentGreen/30 before:rounded-full"></div>
               <div>
-                <p className="text-sm text-primary"><span className="font-bold">Status Change:</span> Meadow Lane Compound moved to 'In Contract'</p>
-                <p className="text-xs text-primary/50 mt-1">Yesterday at 4:30 PM</p>
+                <p className="font-body text-sm text-primary leading-relaxed"><span className="font-bold">Status Change:</span> Meadow Lane Compound moved to 'In Contract'</p>
+                <p className="font-body text-[10px] uppercase tracking-widest text-primary/40 mt-2 font-bold">Yesterday at 4:30 PM</p>
               </div>
             </div>
             <div className="flex items-start">
-              <div className="w-2 h-2 bg-gray-300 rounded-full mt-2 mr-4"></div>
+              <div className="w-1.5 h-1.5 bg-primary/20 rounded-full mt-2 mr-6 relative before:absolute before:inset-[-4px] before:border before:border-primary/10 before:rounded-full"></div>
               <div>
-                <p className="text-sm text-primary"><span className="font-bold">Rental Signed:</span> 44 Lily Pond Lane (August)</p>
-                <p className="text-xs text-primary/50 mt-1">2 days ago</p>
+                <p className="font-body text-sm text-primary leading-relaxed"><span className="font-bold">Rental Signed:</span> 44 Lily Pond Lane (August)</p>
+                <p className="font-body text-[10px] uppercase tracking-widest text-primary/40 mt-2 font-bold">2 days ago</p>
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
 
         {/* Top Properties */}
-        <div className="bg-white p-6 shadow-sm border border-gray-100">
-          <h3 className="font-heading text-xl text-primary mb-6 border-b border-gray-100 pb-4">Most Viewed Properties</h3>
-           <div className="space-y-4">
-             <div className="flex items-center justify-between">
-               <div className="flex items-center gap-4">
-                 <div className="w-12 h-12 bg-gray-200">
-                   <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=100&q=80" alt="prop" className="w-full h-full object-cover" />
+        <motion.div variants={fadeUp} className="bg-white p-8 shadow-sm border border-primary/5">
+          <h3 className="font-heading text-2xl text-primary mb-8 border-b border-primary/10 pb-4 tracking-wide">Most Viewed Properties</h3>
+           <div className="space-y-6">
+             <div className="flex items-center justify-between group hover:bg-background/50 p-2 -mx-2 transition-colors">
+               <div className="flex items-center gap-6">
+                 <div className="w-16 h-16 bg-background overflow-hidden">
+                   <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=100&q=80" alt="prop" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
                  </div>
                  <div>
-                   <p className="text-sm font-bold text-primary">Further Lane Estate</p>
-                   <p className="text-xs text-primary/60 border border-primary/20 inline-block px-1 mt-1">Sale</p>
+                   <p className="font-heading text-lg text-primary mb-1">Further Lane Estate</p>
+                   <p className="font-body text-[9px] uppercase tracking-[0.2em] text-primary/60 border border-primary/10 inline-block px-2 py-0.5 font-bold">Sale</p>
                  </div>
                </div>
                <div className="text-right">
-                 <p className="text-sm text-primary">1,204 Views</p>
+                 <p className="font-body text-sm font-bold text-primary">1,204</p>
+                 <p className="font-body text-[10px] uppercase tracking-widest text-primary/40 mt-1">Views</p>
                </div>
              </div>
              
-             <div className="flex items-center justify-between">
-               <div className="flex items-center gap-4">
-                 <div className="w-12 h-12 bg-gray-200">
-                    <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=100&q=80" alt="prop" className="w-full h-full object-cover" />
+             <div className="flex items-center justify-between group hover:bg-background/50 p-2 -mx-2 transition-colors">
+               <div className="flex items-center gap-6">
+                 <div className="w-16 h-16 bg-background overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=100&q=80" alt="prop" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
                  </div>
                  <div>
-                   <p className="text-sm font-bold text-primary">Lily Pond Summer</p>
-                   <p className="text-xs text-primary/60 border border-primary/20 inline-block px-1 mt-1">Rental</p>
+                   <p className="font-heading text-lg text-primary mb-1">Lily Pond Summer</p>
+                   <p className="font-body text-[9px] uppercase tracking-[0.2em] text-primary/60 border border-primary/10 inline-block px-2 py-0.5 font-bold">Rental</p>
                  </div>
                </div>
                <div className="text-right">
-                 <p className="text-sm text-primary">856 Views</p>
+                 <p className="font-body text-sm font-bold text-primary">856</p>
+                 <p className="font-body text-[10px] uppercase tracking-widest text-primary/40 mt-1">Views</p>
                </div>
              </div>
            </div>
-        </div>
+        </motion.div>
       </div>
-    </div>
+    </motion.div>
   );
 };
