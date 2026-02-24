@@ -1,0 +1,87 @@
+@import "tailwindcss";
+
+@theme {
+    --font-sans: "Avenir Next", "Satoshi", "Inter", system-ui, sans-serif;
+    --font-serif: "Ogg", "Canela", "Playfair Display", Georgia, serif;
+
+    --color-alabaster: #FAF9F6;
+    --color-olive: #7E8C69;
+    --color-navy: #1A365D;
+    --color-espresso: #2A2A2A;
+
+    --radius-sm: 2px;
+    --radius-md: 2px;
+    --radius-lg: 2px;
+    --radius-xl: 2px;
+    --radius-2xl: 2px;
+    --radius-3xl: 2px;
+}
+
+@layer base {
+    body {
+        background-color: var(--color-alabaster);
+        color: var(--color-espresso);
+        font-family: var(--font-sans);
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-family: var(--font-serif);
+        font-weight: 400;
+    }
+
+    /* Parallax Utilities */
+    .parallax-bg {
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    /* Hide scrollbar for clean aesthetic */
+    ::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: var(--color-olive);
+        border-radius: 2px;
+    }
+}
+
+@layer utilities {
+    .text-balance {
+        text-wrap: balance;
+    }
+
+    /* Tactical material feel */
+    .glass-olive {
+        background: rgba(126, 140, 105, 0.1);
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(126, 140, 105, 0.2);
+    }
+
+    .glass-light {
+        background: rgba(250, 249, 246, 0.85);
+        backdrop-filter: blur(16px);
+        border: 1px solid rgba(250, 249, 246, 0.4);
+    }
+
+    .hover-lift {
+        transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+    }
+
+    .hover-lift:hover {
+        transform: translateY(-4px);
+    }
+}

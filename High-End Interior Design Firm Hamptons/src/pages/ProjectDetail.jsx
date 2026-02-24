@@ -14,9 +14,9 @@ const ProjectDetail = () => {
     location: 'Amagansett, NY',
     year: '2023',
     description: 'A complete overhaul of a 1970s coastal estate, transformed into a light-filled sanctuary for a growing family. We prioritized natural materials, expansive views, and a seamless connection between indoor and outdoor spaces.',
-    heroImage: '/assets/oceanfront_estate_1771809815546.png',
-    beforeImage: '/assets/hamptons_living_room_hero_1771809798288.png', // Using hero as 'after' for now
-    afterImage: '/assets/oceanfront_estate_1771809815546.png',
+    heroImage: '/images/hamptons_oceanfront_estate_1771895629128.png',
+    beforeImage: '/images/hamptons_living_room_hero_1771895658346.png', // Using hero as 'after' for now
+    afterImage: '/images/hamptons_oceanfront_estate_1771895629128.png',
     sourcing: [
       { item: 'Living Room Sofa', brand: 'Custom by Salt & Light', detail: 'Belgian Linen in Oyster' },
       { item: 'Pendant Lighting', brand: 'Apparatus Studio', detail: 'Brass & Etched Glass' },

@@ -6,14 +6,14 @@ export default function TrustAbout() {
     {
       id: 1,
       procedure: "Signature Deep-Plane Facelift",
-      before: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&q=80&w=400&h=400",
-      after: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&q=80&w=400&h=400" // Concept: Showing same base image for placeholder but structured for distinct B/A
+      before: "/images/trust_before_facelift_1771894398297.png",
+      after: "/images/trust_after_facelift_1771894412793.png" // Concept: Showing same base image for placeholder but structured for distinct B/A
     },
     {
       id: 2,
       procedure: "Precision Rhinoplasty",
-      before: "https://images.unsplash.com/photo-1506122716200-0df9a7be8e37?auto=format&fit=crop&q=80&w=400&h=400",
-      after: "https://images.unsplash.com/photo-1506122716200-0df9a7be8e37?auto=format&fit=crop&q=80&w=400&h=400"
+      before: "/images/trust_before_rhino_1771894426865.png",
+      after: "/images/trust_after_rhino_1771894440258.png"
     }
   ];
 
@@ -31,7 +31,7 @@ export default function TrustAbout() {
         <div className="container surgeon-container">
           <div className="surgeon-image-wrapper">
             <img 
-              src="https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&q=80&w=800&h=1000" 
+              src="/images/trust_dr_brooks_1771894466924.png" 
               alt="Dr. Alexander Brooks" 
               className="surgeon-image"
             />

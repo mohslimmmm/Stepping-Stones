@@ -1,17 +1,16 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Navbar from './components/Navbar';
-import Footer from './components/Footer';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import ClientLayout from './layouts/ClientLayout';
+import AdminLayout from './layouts/AdminLayout';
 
 // Client Pages
-import Home from './pages/Home';
-import Discovery from './pages/Discovery';
-import DetailTemplate from './pages/DetailTemplate';
-import Journal from './pages/Journal';
-import About from './pages/About';
-import Contact from './pages/Contact';
+import Home from './pages/client/Home';
+import Discovery from './pages/client/Discovery';
+import Detail from './pages/client/Detail';
+import SkinJournal from './pages/client/SkinJournal';
+import TrustAbout from './pages/client/TrustAbout';
+import Contact from './pages/client/Contact';
 
-// Admin Components
-import AdminLayout from './components/AdminLayout';
+// Admin Pages
 import Dashboard from './pages/admin/Dashboard';
 import Inventory from './pages/admin/Inventory';
 import EditForm from './pages/admin/EditForm';
@@ -20,29 +19,25 @@ import LeadsInbox from './pages/admin/LeadsInbox';
 function App() {
   return (
     <BrowserRouter>
-      <div className="min-h-screen flex flex-col bg-ivory text-slate">
-        <Navbar />
-        <main className="flex-grow">
-          <Routes>
-            {/* Client Routes */}
-            <Route path="/" element={<Home />} />
-            <Route path="/discovery" element={<Discovery />} />
-            <Route path="/treatment/:id" element={<DetailTemplate />} />
-            <Route path="/journal" element={<Journal />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/contact" element={<Contact />} />
+      <Routes>
+        <Route path="/" element={<ClientLayout />}>
+          <Route index element={<Home />} />
+          <Route path="discovery" element={<Discovery />} />
+          <Route path="treatment/:id" element={<Detail />} />
+          <Route path="journal" element={<SkinJournal />} />
+          <Route path="trust" element={<TrustAbout />} />
+          <Route path="contact" element={<Contact />} />
+        </Route>
 
-            {/* Admin Routes */}
-            <Route path="/admin" element={<AdminLayout />}>
-              <Route index element={<Dashboard />} />
-              <Route path="inventory" element={<Inventory />} />
-              <Route path="edit" element={<EditForm />} />
-              <Route path="leads" element={<LeadsInbox />} />
-            </Route>
-          </Routes>
-        </main>
-        <Footer />
-      </div>
+        <Route path="/admin" element={<AdminLayout />}>
+          <Route index element={<Dashboard />} />
+          <Route path="inventory" element={<Inventory />} />
+          <Route path="edit/:id?" element={<EditForm />} />
+          <Route path="leads" element={<LeadsInbox />} />
+        </Route>
+        
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Routes>
     </BrowserRouter>
   );
 }

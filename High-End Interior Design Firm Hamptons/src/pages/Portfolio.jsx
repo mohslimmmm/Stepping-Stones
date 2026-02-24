@@ -12,7 +12,7 @@ const Portfolio = () => {
       id: 'amagansett-retreat',
       title: 'Amagansett Retreat',
       category: 'Oceanfront Estates',
-      image: '/assets/oceanfront_estate_1771809815546.png',
+      image: '/images/hamptons_oceanfront_estate_1771895629128.png',
     },
     {
       id: 'sag-harbor-cottage',
@@ -24,7 +24,7 @@ const Portfolio = () => {
       id: 'bridgehampton-barn',
       title: 'Bridgehampton Barn',
       category: 'Modern Barns',
-      image: '/assets/modern_barn_kitchen_1771809828645.png',
+      image: '/images/hamptons_modern_barn_kitchen_1771895643678.png',
     },
     {
       id: 'montauk-suites',
@@ -36,13 +36,13 @@ const Portfolio = () => {
       id: 'southampton-manor',
       title: 'Southampton Manor',
       category: 'Oceanfront Estates',
-      image: '/assets/hamptons_living_room_hero_1771809798288.png',
+      image: '/images/hamptons_living_room_hero_1771895658346.png',
     },
     {
       id: 'wainscott-loft',
       title: 'Wainscott Loft',
       category: 'Modern Barns',
-      image: '/assets/modern_barn_kitchen_1771809828645.png',
+      image: '/images/hamptons_modern_barn_kitchen_1771895643678.png',
     }
   ];
 

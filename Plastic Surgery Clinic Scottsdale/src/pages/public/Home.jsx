@@ -8,19 +8,19 @@ export default function Home() {
       id: "deep-plane-facelift",
       name: "Signature Deep-Plane Facelift",
       description: "Comprehensive facial rejuvenation designed for natural, enduring results.",
-      image: "https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?auto=format&fit=crop&q=80&w=800&h=600"
+      image: "/images/home_facelift_1771894311782.png"
     },
     {
       id: "rhinoplasty",
       name: "Precision Rhinoplasty",
       description: "Structural refinement utilizing advanced preservation techniques.",
-      image: "https://images.unsplash.com/photo-1512496015851-a1cbfb41b86d?auto=format&fit=crop&q=80&w=800&h=600"
+      image: "/images/home_rhinoplasty_1771894326714.png"
     },
     {
       id: "breast-augmentation",
       name: "Bespoke Breast Augmentation",
       description: "Tailored implants with a focus on proportion and sophisticated aesthetic.",
-      image: "https://images.unsplash.com/photo-1507652313656-b188c1490209?auto=format&fit=crop&q=80&w=800&h=600"
+      image: "/images/home_breast_aug_1771894341156.png"
     }
   ];
 
@@ -30,7 +30,7 @@ export default function Home() {
       <section className="hero-section">
         <div className="hero-bg">
           <img 
-            src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=1920&h=1080" 
+            src="/images/home_hero_arch_1771894358669.png" 
             alt="Desert Sculpt Clinic Architecture" 
             className="hero-image"
           />
@@ -62,7 +62,7 @@ export default function Home() {
           </div>
           <div className="philosophy-image-container">
             <img 
-              src="https://images.unsplash.com/photo-1598928506311-c55dd1b6e1ee?auto=format&fit=crop&q=80&w=800&h=1000" 
+              src="/images/home_clinic_detail_1771894374452.png" 
               alt="Clinic Interior Details" 
               className="philosophy-image"
             />

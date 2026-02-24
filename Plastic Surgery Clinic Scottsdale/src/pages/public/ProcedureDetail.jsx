@@ -13,7 +13,7 @@ export default function ProcedureDetail() {
     duration: "4 to 6 Hours",
     anesthesia: "General or Deep IV Sedation",
     recovery: "10 to 14 Days",
-    image: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80&w=1200&h=600"
+    image: "/images/procedure_hero_1771894480921.png"
   };
 
   return (
@@ -67,7 +67,7 @@ export default function ProcedureDetail() {
               </div>
               <div className="diagram-visual">
                 <img 
-                  src="https://images.unsplash.com/photo-1559757175-5700dde675bc?auto=format&fit=crop&q=80&w=800&h=400" 
+                  src="/images/procedure_3d_anatomy_1771894495546.png" 
                   alt="3D Facial Anatomy Diagram" 
                   className="diagram-img"
                 />

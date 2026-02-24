@@ -8,13 +8,13 @@ const Home = () => {
       id: 'amagansett-retreat',
       title: 'Amagansett Retreat',
       category: 'Oceanfront Estates',
-      image: '/assets/oceanfront_estate_1771809815546.png', 
+      image: '/images/hamptons_oceanfront_estate_1771895629128.png', 
     },
     {
       id: 'bridgehampton-barn',
       title: 'Bridgehampton Barn',
       category: 'Modern Barns',
-      image: '/assets/modern_barn_kitchen_1771809828645.png',
+      image: '/images/hamptons_modern_barn_kitchen_1771895643678.png',
     }
   ];
 
@@ -24,7 +24,7 @@ const Home = () => {
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 
-            src="/assets/hamptons_living_room_hero_1771809798288.png" 
+            src="/images/hamptons_living_room_hero_1771895658346.png" 
             alt="Hamptons Living Room" 
             className="w-full h-full object-cover scale-105"
           />
@@ -104,7 +104,7 @@ const Home = () => {
             <div className="relative">
               <div className="aspect-[3/4] rounded-8 overflow-hidden">
                 <img 
-                  src="/assets/hamptons_living_room_hero_1771809798288.png" 
+                  src="/images/hamptons_living_room_hero_1771895658346.png" 
                   alt="Design Details" 
                   className="w-full h-full object-cover"
                 />

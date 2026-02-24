@@ -17,7 +17,7 @@ export default function PatientResources() {
           <article className="editorial-article">
             <div className="article-image-box">
               <img 
-                src="https://images.unsplash.com/photo-1542314831-c5a4d407e3d1?auto=format&fit=crop&q=80&w=800&h=600" 
+                src="/images/resources_resort_1771894515188.png" 
                 alt="Luxury Scottsdale Resort" 
                 className="article-image"
               />
@@ -41,7 +41,7 @@ export default function PatientResources() {
           <article className="editorial-article reverse">
             <div className="article-image-box">
               <img 
-                src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&q=80&w=800&h=600" 
+                src="/images/resources_consultation_1771894528842.png" 
                 alt="Financing and Consultation" 
                 className="article-image"
               />

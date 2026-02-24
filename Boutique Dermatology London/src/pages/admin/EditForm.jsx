@@ -1,107 +1,125 @@
 import { useState } from 'react';
-import { Save, X } from 'lucide-react';
+import { useNavigate, useParams, Link } from 'react-router-dom';
+import { ArrowLeft, Save } from 'lucide-react';
 
-const EditForm = () => {
-  const [type, setType] = useState('treatment'); // 'treatment' or 'product'
+export default function EditForm() {
+  const { id } = useParams();
+  const navigate = useNavigate();
+  const isEditing = !!id;
+
+  const [type, setType] = useState('retail');
 
   return (
-    <div className="fade-in max-w-4xl mx-auto">
-      <div className="mb-8 border-b border-slate-grey/20 pb-4">
-        <h2 className="text-3xl font-header text-slate-grey-dark mb-2">Protocol & Product Formulator</h2>
-        <p className="text-slate-grey opacity-80 font-body">Add new clinical offerings or update existing regimens and retail products.</p>
+    <div className="max-w-4xl mx-auto">
+      <div className="flex items-center space-x-4 mb-8">
+        <button 
+          onClick={() => navigate('/admin/inventory')}
+          className="p-2 border border-foreground/20 hover:bg-foreground/10 transition-colors bg-foreground"
+        >
+          <ArrowLeft className="w-5 h-5 text-background" />
+        </button>
+        <div>
+          <h2 className="text-2xl font-serif text-background">{isEditing ? 'Edit Registry Item' : 'Add New Item'}</h2>
+          <p className="text-background/60 text-sm font-light mt-1">Provide comprehensive details for the clinic system.</p>
+        </div>
       </div>
 
-      <div className="bg-white border border-slate-grey/20 p-8 shadow-sm">
-        
-        {/* Type Selector */}
-        <div className="flex gap-6 mb-8 border-b border-slate-grey/10 pb-6">
-          <label className="flex items-center gap-2 cursor-pointer">
+      <div className="bg-foreground text-background shadow-sm border border-foreground/10 p-8">
+        <form className="space-y-8">
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="space-y-2">
+               <label className="text-xs uppercase tracking-widest font-semibold text-background/60">Item Type</label>
+               <select 
+                title="type"
+                value={type}
+                onChange={(e) => setType(e.target.value)}
+                className="w-full bg-background/5 border border-background/20 py-3 text-background focus:outline-none focus:border-primary px-4"
+               >
+                 <option value="retail">Retail Skincare Product</option>
+                 <option value="protocol">Clinical Protocol / Treatment</option>
+               </select>
+            </div>
+            <div className="space-y-2">
+               <label className="text-xs uppercase tracking-widest font-semibold text-background/60">SKU / Identifier</label>
+               <input 
+                 title="identifier"
+                 type="text" 
+                 defaultValue={isEditing ? 'SK-CEF-99' : ''}
+                 className="w-full bg-background/5 border border-background/20 py-3 text-background focus:outline-none focus:border-primary px-4"
+                 placeholder="e.g. SK-1002"
+               />
+            </div>
+          </div>
+
+          <div className="space-y-2">
+            <label className="text-xs uppercase tracking-widest font-semibold text-background/60">Item Name</label>
             <input 
-              type="radio" 
-              name="type" 
-              value="treatment" 
-              checked={type === 'treatment'} 
-              onChange={() => setType('treatment')}
-              className="accent-slate-dark"
+              title="name"
+              type="text" 
+              defaultValue={isEditing ? 'Advanced C E Ferulic Formulation' : ''}
+              className="w-full bg-transparent border-b border-background/30 py-3 text-background focus:outline-none focus:border-primary transition-colors text-lg font-serif"
+              placeholder="Enter comprehensive name"
             />
-            <span className="font-body text-slate-grey-dark uppercase tracking-widest text-sm font-bold">Clinical Treatment</span>
-          </label>
-          <label className="flex items-center gap-2 cursor-pointer">
-            <input 
-              type="radio" 
-              name="type" 
-              value="product" 
-              checked={type === 'product'} 
-              onChange={() => setType('product')}
-              className="accent-slate-dark"
-            />
-            <span className="font-body text-slate-grey-dark uppercase tracking-widest text-sm font-bold">Retail Product</span>
-          </label>
-        </div>
+          </div>
 
-        <form className="space-y-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div>
-              <label className="block text-xs uppercase tracking-widest text-slate-grey font-bold mb-2">Name</label>
-              <input type="text" className="w-full border border-slate-grey/30 bg-white p-3 focus:outline-none focus:border-slate-dark transition-colors font-body" placeholder={`e.g. ${type === 'treatment' ? 'Erbium Laser' : 'C E Ferulic'}`} />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="space-y-2">
+               <label className="text-xs uppercase tracking-widest font-semibold text-background/60">Category</label>
+               <input 
+                 title="category"
+                 type="text" 
+                 defaultValue={isEditing ? 'Antioxidant Serum' : ''}
+                 className="w-full bg-transparent border-b border-background/30 py-3 text-background focus:outline-none focus:border-primary transition-colors"
+                 placeholder="e.g. Serum, Laser, Peel"
+               />
             </div>
-            <div>
-              <label className="block text-xs uppercase tracking-widest text-slate-grey font-bold mb-2">Category / Brand</label>
-              <input type="text" className="w-full border border-slate-grey/30 bg-white p-3 focus:outline-none focus:border-slate-dark transition-colors font-body" placeholder={`e.g. ${type === 'treatment' ? 'Laser Resurfacing' : 'SkinCeuticals'}`} />
+            <div className="space-y-2">
+               <label className="text-xs uppercase tracking-widest font-semibold text-background/60">{type === 'retail' ? 'Price (£)' : 'Base Price (£)'}</label>
+               <input 
+                 title="price"
+                 type="number" 
+                 defaultValue={isEditing ? '165' : ''}
+                 className="w-full bg-transparent border-b border-background/30 py-3 text-background focus:outline-none focus:border-primary transition-colors"
+                 placeholder="0.00"
+               />
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div>
-              <label className="block text-xs uppercase tracking-widest text-slate-grey font-bold mb-2">Price (£)</label>
-              <input type="number" className="w-full border border-slate-grey/30 bg-white p-3 focus:outline-none focus:border-slate-dark transition-colors font-body" placeholder="0.00" />
-            </div>
-            {type === 'treatment' ? (
-              <div>
-                <label className="block text-xs uppercase tracking-widest text-slate-grey font-bold mb-2">Duration (mins)</label>
-                <input type="number" className="w-full border border-slate-grey/30 bg-white p-3 focus:outline-none focus:border-slate-dark transition-colors font-body" placeholder="60" />
-              </div>
-            ) : (
-              <div>
-                <label className="block text-xs uppercase tracking-widest text-slate-grey font-bold mb-2">Initial Stock</label>
-                <input type="number" className="w-full border border-slate-grey/30 bg-white p-3 focus:outline-none focus:border-slate-dark transition-colors font-body" placeholder="10" />
-              </div>
-            )}
-            <div>
-              <label className="block text-xs uppercase tracking-widest text-slate-grey font-bold mb-2">Status</label>
-              <select className="w-full border border-slate-grey/30 bg-white p-3 focus:outline-none focus:border-slate-dark transition-colors font-body">
-                <option>Active</option>
-                <option>Draft</option>
-                <option>Archived</option>
-              </select>
+          <div className="space-y-2">
+            <label className="text-xs uppercase tracking-widest font-semibold text-background/60">
+              {type === 'retail' ? 'Active Ingredients List' : 'Protocol Specifications'}
+            </label>
+            <textarea 
+              title="details"
+              rows="4"
+              defaultValue={isEditing && type === 'retail' ? '15% L-ascorbic acid, 1% alpha tocopherol, 0.5% ferulic acid.' : ''}
+              className="w-full bg-background/5 border border-background/20 p-4 text-background focus:outline-none focus:border-primary transition-colors resize-none font-light text-sm"
+              placeholder={type === 'retail' ? 'Comma separated active ingredients...' : 'Clinical steps, device settings, required downtime...'}
+            ></textarea>
+          </div>
+
+           <div className="space-y-2">
+            <label className="text-xs uppercase tracking-widest font-semibold text-background/60">Upload Image / Asset</label>
+            <div className="border-2 border-dashed border-background/20 p-8 text-center bg-background/5">
+              <span className="text-background/50 font-light text-sm">Drag and drop high-resolution asset here, or click to browse.</span>
             </div>
           </div>
 
-          <div>
-            <label className="block text-xs uppercase tracking-widest text-slate-grey font-bold mb-2">Description</label>
-            <textarea rows="4" className="w-full border border-slate-grey/30 bg-white p-3 focus:outline-none focus:border-slate-dark transition-colors font-body resize-none" placeholder="Detailed clinical description..."></textarea>
-          </div>
-
-          {type === 'product' && (
-            <div>
-              <label className="block text-xs uppercase tracking-widest text-slate-grey font-bold mb-2">Key Active Ingredients (Comma separated)</label>
-              <input type="text" className="w-full border border-slate-grey/30 bg-white p-3 focus:outline-none focus:border-slate-dark transition-colors font-body" placeholder="e.g. 15% L-ascorbic acid, 1% alpha tocopherol, 0.5% ferulic acid" />
-            </div>
-          )}
-
-          {type === 'treatment' && (
-            <div>
-              <label className="block text-xs uppercase tracking-widest text-slate-grey font-bold mb-2">Protocol Steps (One per line)</label>
-              <textarea rows="4" className="w-full border border-slate-grey/30 bg-white p-3 focus:outline-none focus:border-slate-dark transition-colors font-body resize-none" placeholder="1. Cleanse&#10;2. Prep&#10;..."></textarea>
-            </div>
-          )}
-
-          <div className="pt-6 border-t border-slate-grey/10 border-dashed flex justify-end gap-4 mt-8">
-            <button type="button" className="inline-flex items-center gap-2 px-6 py-3 border border-slate-grey/30 text-slate-grey hover:bg-slate-grey-grey/5 transition-colors font-body text-sm font-bold uppercase tracking-widest">
-              <X size={16} /> Cancel
-            </button>
-            <button type="button" className="inline-flex items-center gap-2 px-6 py-3 bg-slate-dark text-ivory hover:bg-slate-grey transition-colors font-body text-sm font-bold uppercase tracking-widest">
-              <Save size={16} /> Save Item
+          <div className="pt-6 border-t border-background/10 flex justify-end space-x-4">
+            <Link 
+              to="/admin/inventory"
+              className="px-6 py-3 text-sm uppercase tracking-wider font-semibold text-background/60 hover:text-background transition-colors"
+            >
+              Cancel
+            </Link>
+            <button 
+              type="button"
+              onClick={() => navigate('/admin/inventory')}
+              className="flex items-center space-x-2 bg-primary hover:bg-primary-hover text-background px-8 py-3 uppercase tracking-wider text-sm font-semibold transition-colors"
+            >
+              <Save className="w-4 h-4" />
+              <span>Save Details</span>
             </button>
           </div>
 
@@ -109,6 +127,4 @@ const EditForm = () => {
       </div>
     </div>
   );
-};
-
-export default EditForm;
+}

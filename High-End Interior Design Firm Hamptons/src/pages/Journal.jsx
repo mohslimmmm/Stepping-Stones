@@ -9,7 +9,7 @@ const Journal = () => {
       category: 'Design Trends',
       date: 'June 12, 2024',
       excerpt: 'How to use raw linen, jute, and weathered oak to create a space that breathes with the seasons.',
-      image: '/assets/oceanfront_estate_1771809815546.png',
+      image: '/images/hamptons_oceanfront_estate_1771895629128.png',
     },
     {
       id: 'sourcing-antiques',
