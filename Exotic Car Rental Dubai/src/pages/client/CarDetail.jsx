@@ -1,26 +1,41 @@
 import React, { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { ArrowLeft, CheckCircle2, ShieldCheck, Zap, Gauge, Navigation } from 'lucide-react';
+import { fleetData } from '../../data/fleet';
 import './CarDetail.css';
 
 const CarDetail = () => {
   const { id } = useParams();
   const [activeImage, setActiveImage] = useState(0);
 
-  // Mock data for the layout
+  // Find car by slug from fleet data
+  const baseCar = fleetData.find(c => c.slug === id);
+
+  if (!baseCar) {
+    return (
+      <div className="car-detail-page text-center" style={{ paddingTop: '150px' }}>
+        <h1 className="neon-text">CAR NOT FOUND</h1>
+        <p className="mt-4">The vehicle you are looking for does not exist in our fleet.</p>
+        <Link to="/fleet" className="btn-primary mt-8 inline-block">Return to Fleet</Link>
+      </div>
+    );
+  }
+
+  // Extend with mock data for details not yet in fleet.js
   const car = {
-    name: 'Lamborghini Revuelto',
-    price: 8500,
+    name: baseCar.name,
+    price: baseCar.price,
     images: [
-      'https://images.unsplash.com/photo-1544888252-eb061c0c1cf1?q=80&w=2538&auto=format&fit=crop',
+      baseCar.image,
+      // fallback mock images for gallery
       'https://images.unsplash.com/photo-1511919884226-fd3cad34687c?q=80&w=2670&auto=format&fit=crop',
       'https://images.unsplash.com/photo-1627454819213-f56f18ed4085?q=80&w=2670&auto=format&fit=crop',
     ],
     specs: {
-      power: '1001 HP',
-      accel: '2.5s',
+      power: baseCar.specs.split('•')[1]?.trim() || 'N/A HP',
+      accel: baseCar.specs.split('•')[2]?.trim() || 'N/A 0-100',
       topSpeed: '350 km/h',
-      engine: 'V12 Hybrid',
+      engine: baseCar.specs.split('•')[0]?.trim() || 'N/A',
     },
     features: [
       'Carbon Fiber Monocoque',
@@ -29,7 +44,7 @@ const CarDetail = () => {
       'Apple CarPlay',
       'Carbon Ceramic Brakes'
     ],
-    description: "The Lamborghini Revuelto is the first super sports V12 hybrid plug-in HPEV (High Performance Electrified Vehicle). It defines a new paradigm in terms of performance, sportiness and driving pleasure from its unprecedented new architecture; innovative design; maximum-efficiency aerodynamics; and a new carbon frame concept."
+    description: `The ${baseCar.name} defines a new paradigm in terms of performance, sportiness and driving pleasure. Featuring top-of-the-line performance matched with unparalleled luxury.`
   };
 
   return (
@@ -141,7 +156,7 @@ const CarDetail = () => {
               <div className="price-breakdown">
                 <div className="breakdown-row">
                   <span>Rental Rate</span>
-                  <span>AED 8,500</span>
+                  <span>AED {car.price.toLocaleString()}</span>
                 </div>
                 <div className="breakdown-row">
                   <span>Security Deposit (Refundable)</span>
@@ -149,7 +164,7 @@ const CarDetail = () => {
                 </div>
                 <div className="breakdown-row total">
                   <span>Total Due Now</span>
-                  <span className="neon-text">AED {car.price.toLocaleString()}</span>
+                  <span className="neon-text">AED {(car.price + 10000).toLocaleString()}</span>
                 </div>
               </div>
               

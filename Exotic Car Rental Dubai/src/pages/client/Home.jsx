@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ChevronRight, Calendar, Car } from 'lucide-react';
+import { fleetData } from '../../data/fleet';
 import './Home.css';
 
 const Home = () => {
@@ -50,44 +51,22 @@ const Home = () => {
         </div>
         
         <div className="fleet-grid">
-          {/* Mock Car Card 1 */}
-          <div className="car-card aerodynamic-card">
-            <div className="car-image lambo-revuelto"></div>
-            <div className="car-info">
-              <h3>Lamborghini Revuelto</h3>
-              <p className="car-specs">V12 Hybrid • 1001 HP • 2.5s 0-100</p>
-              <div className="car-price">
-                <span className="price-value">AED 8,500</span> <span className="price-period">/ day</span>
+          {fleetData.slice(0, 3).map((car) => (
+            <div className="car-card aerodynamic-card" key={car.id} style={car.bg ? { background: car.bg } : {}}>
+              <div 
+                className={`car-image ${car.imageClass}`}
+                style={car.image ? { backgroundImage: `url('${car.image}')` } : {}}
+              ></div>
+              <div className="car-info">
+                <h3>{car.name}</h3>
+                <p className="car-specs">{car.specs}</p>
+                <div className="car-price">
+                  <span className="price-value">{car.priceStr}</span> <span className="price-period">/ day</span>
+                </div>
+                <Link to={`/fleet/${car.slug}`} className="btn-outline w-full text-center" style={{ display: 'block', marginTop: '15px' }}>View Details</Link>
               </div>
-              <Link to="/fleet/revuelto" className="btn-outline w-full text-center" style={{ display: 'block', marginTop: '15px' }}>View Details</Link>
             </div>
-          </div>
-
-          {/* Mock Car Card 2 */}
-          <div className="car-card aerodynamic-card">
-            <div className="car-image rolls-cullinan"></div>
-            <div className="car-info">
-              <h3>Rolls-Royce Cullinan</h3>
-              <p className="car-specs">V12 Twin-Turbo • 563 HP • Ultimate Luxury</p>
-              <div className="car-price">
-                <span className="price-value">AED 6,000</span> <span className="price-period">/ day</span>
-              </div>
-              <Link to="/fleet/cullinan" className="btn-outline w-full text-center" style={{ display: 'block', marginTop: '15px' }}>View Details</Link>
-            </div>
-          </div>
-
-          {/* Mock Car Card 3 */}
-          <div className="car-card aerodynamic-card">
-            <div className="car-image sf90"></div>
-            <div className="car-info">
-              <h3>Ferrari SF90 Stradale</h3>
-              <p className="car-specs">V8 Hybrid • 986 HP • 2.5s 0-100</p>
-              <div className="car-price">
-                <span className="price-value">AED 9,000</span> <span className="price-period">/ day</span>
-              </div>
-              <Link to="/fleet/sf90" className="btn-outline w-full text-center" style={{ display: 'block', marginTop: '15px' }}>View Details</Link>
-            </div>
-          </div>
+          ))}
         </div>
         
         <div className="action-center" style={{ textAlign: 'center', marginTop: '40px' }}>
