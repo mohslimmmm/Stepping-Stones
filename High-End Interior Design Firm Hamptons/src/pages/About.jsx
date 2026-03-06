@@ -12,7 +12,7 @@ const About = () => {
           >
             <div className="relative">
               <img 
-                src="/assets/principal_designer_bio_1771809968621.png" 
+                src="https://plus.unsplash.com/premium_photo-1678208873704-29c8259777eb?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fHJlYWwlMjBzdGF0ZXxlbnwwfHwwfHx8MA%3D%3D" 
                 alt="Lula Henderson" 
                 className="w-full rounded-8 shadow-2xl grayscale-[20%]"
               />

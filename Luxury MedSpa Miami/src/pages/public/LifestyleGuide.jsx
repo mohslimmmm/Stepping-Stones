@@ -31,7 +31,7 @@ const LifestyleGuide = () => {
         <div className="editorial-grid">
           {/* Article 1 */}
           <article className="editorial-card hover-lift">
-            <div className="card-image" style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1598440947619-2f58eccc0aa0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80")' }}></div>
+            <div className="card-image" style={{ backgroundImage: 'url("https://plus.unsplash.com/premium_photo-1683134297492-cce5fc6dae31?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8c3BhfGVufDB8fDB8fHww")' }}></div>
             <div className="card-content">
               <span className="article-tag">Post-Care</span>
               <h3>The Critical First 48 Hours</h3>

@@ -13,7 +13,7 @@ const AdminLayout = () => {
 
   return (
     <div className="admin-layout">
-      <aside className="admin-sidebar glass-panel">
+      <aside className="admin-sidebar">
         <div className="admin-logo">
           <h2>AURA</h2>
           <p>Admin Console</p>

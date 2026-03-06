@@ -18,7 +18,7 @@ const Portfolio = () => {
       id: 'sag-harbor-cottage',
       title: 'Sag Harbor Cottage',
       category: 'Historic Renovations',
-      image: '/assets/historic_renovation_1771809903408.png', 
+      image: 'https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fHJlYWwlMjBzdGF0ZXxlbnwwfHwwfHx8MA%3D%3D', 
     },
     {
       id: 'bridgehampton-barn',
@@ -30,7 +30,7 @@ const Portfolio = () => {
       id: 'montauk-suites',
       title: 'Montauk Suites',
       category: 'Commercial Spaces',
-      image: '/assets/commercial_space_design_1771809919472.png', 
+      image: 'https://images.unsplash.com/photo-1733078868229-fac69ef3afad?q=80&w=686&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', 
     },
     {
       id: 'southampton-manor',

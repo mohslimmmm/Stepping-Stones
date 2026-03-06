@@ -12,7 +12,7 @@ const TREATMENTS_DATA = [
   { id: 'coolsculpting', name: 'CoolSculpting Elite', category: 'Body Contouring', price: 'Consultation Required', image: 'https://images.unsplash.com/photo-1544161515-4ab6ce6db874?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', description: 'Non-invasive fat reduction technology.' },
   { id: 'emsculpt', name: 'Emsculpt NEO', category: 'Body Contouring', price: 'From $1,000', image: 'https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', description: 'Build muscle and burn fat simultaneously.' },
   { id: 'myers', name: 'Myer\'s Cocktail IV', category: 'Wellness IVs', price: '$250', image: 'https://images.unsplash.com/photo-1584362917165-526a968579e8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', description: 'Ultimate hydration and vitamin infusion.' },
-  { id: 'nad', name: 'NAD+ Therapy', category: 'Wellness IVs', price: 'From $400', image: 'https://images.unsplash.com/photo-1576091160550-2173eff3e8fc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', description: 'Cellular regeneration and anti-aging boost.' },
+  { id: 'nad', name: 'NAD+ Therapy', category: 'Wellness IVs', price: 'From $400', image: 'https://images.unsplash.com/photo-1600334129128-685c5582fd35?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fHNwYXxlbnwwfHwwfHx8MA%3D%3D', description: 'Cellular regeneration and anti-aging boost.' },
 ];
 
 const CATEGORIES = ['All', 'Injectables', 'Laser Therapies', 'Body Contouring', 'Wellness IVs'];

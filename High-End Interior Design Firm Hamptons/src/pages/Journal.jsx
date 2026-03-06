@@ -17,7 +17,7 @@ const Journal = () => {
       category: 'Sourcing',
       date: 'May 28, 2024',
       excerpt: 'A travelogue of our recent trip to the flea markets of Paris and the hidden gems of the Italian coast.',
-      image: '/assets/historic_renovation_1771809903408.png',
+      image: 'https://images.unsplash.com/photo-1605146769289-440113cc3d00?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHJlYWwlMjBzdGF0ZXxlbnwwfHwwfHx8MA%3D%3D',
     }
   ];
 
